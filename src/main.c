@@ -16,16 +16,18 @@ void				ft_error(char *str)
 
 int					main(int ac, char **av)
 {
-	t_general		general;
-	t_list			*lst;
+	t_general	g;
+	t_list	*lst;
 
 	if (ac < 4)
 		ft_error("Error this number arguments.\n");
 	printf("\x1b[H\x1b[J");
-	ft_bzero(&general, sizeof(t_general));
-	parse_number_values(&general, av);
-	make_array_values(&general, av);
-	check_doubles_arr(general.array);
-	push_swap(&general);
+	ft_bzero(&g, sizeof(t_general));
+	parse_number_values(&g, av);
+	make_array_values(&g, av);
+	check_doubles_arr(g.array);
+	push_swap(&g);
+	check_sort(g.array);
+	printf("Совершено операций: %zu\nКоличество аргументов подано: %zu\n", g.ins_num, g.len_argc);
 	return (0);
 }

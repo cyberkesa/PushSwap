@@ -29,6 +29,12 @@ int		get_min_way(char **array, size_t pos_elem)
 	return (rotate);
 }
 
+void	check_sa(t_general *g, char **array)
+{
+	if (array[0] > array[1])
+		sa_ins(g);
+}
+
 int		push_b_with_rotate(t_general *g, char **array, int rotate)
 {
 	printf("rotate: %d\n", rotate);
@@ -49,6 +55,7 @@ int		push_b_with_rotate(t_general *g, char **array, int rotate)
 			rra_ins(g);
 	}
 	pa_ins(g);
+	check_sa(g, g->array);
 	return (rotate);
 }
 
@@ -58,22 +65,30 @@ void	super_algorithm(t_general *g)
 	int	rotate;
 
 	i = 0;
-	while (i != get_pos_elem(g->sort_array, g->middle))
+	if (check_polusort_stack_a(g->array) == 1)
+	{
+		rotate_master(g->array, 'a');
+		
+	}
+	print_array(g->array);
+	while (i != g->len_argc / 2)//get_pos_elem(g->sort_array, g->middle))
 	{
 		rotate = get_pos_elem(g->array, g->sort_array[i]);
 		push_b_with_rotate(g, g->array, rotate);
 		i++;
 	}
-
 	// printf("rotate: %d\n", rotate);
 	print_array(g->array);
 	print_array(g->stack_b);
-	printf("Совершено операций: %zu\n", g->ins_num);
 }
 
 void	push_swap(t_general *g)
 {
 	g->sort_array = quick_sort_arr(g->sort_array, 0, get_len_array(g->sort_array) - 1);
 	g->middle = get_middle_values(g->sort_array, get_len_array(g->sort_array));
+	print_array(g->array);
 	super_algorithm(g);
+	while (get_len_array(g->stack_b) != 0)
+		pb_ins(g);
+	print_array(g->array);
 }
