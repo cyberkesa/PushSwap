@@ -19,11 +19,12 @@ OBJD =		objects/
 SRS =		main.c \
 			make_array.c \
 			quick_sort.c \
-			merge_sort.c \
 			prints.c \
 			algorithm.c \
 			check_error.c \
-			push_swap_ins.c
+			push_swap_ins.c \
+			get_utils.c \
+			check_sorts.c \
 
 SRCD = 		src/
 
