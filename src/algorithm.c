@@ -15,135 +15,39 @@ char	*get_middle_values(char **array_for_find, size_t lens)
 	return (array_for_find[(int)((get_len_array(array_for_find)) / 2)]);
 }
 
-void	super_algorithm(t_general *general)
+int		maybe_sa(char **array)
 {
-	print_array(general->array);
 
-	rotate_master(general->array, 'a');
-	// rra_ins(general);
-	print_array(general->array);
-
-	check_polusort_stack_a(general->array);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	pa_ins(general);
-	print_array(general->stack_b);
-	check_polusort_stack_b(general->stack_b);
 }
 
-void	push_swap(t_general *general)
+int		insert_sorts(t_general *g)
 {
-	general->sort_array = quick_sort_arr(general->sort_array, 0, get_len_array(general->sort_array) - 1);
-	general->middle = get_middle_values(general->sort_array, get_len_array(general->sort_array));
-	super_algorithm(general);
+
+}
+
+int		rotate_master(char **array, char ab)
+{
+
+}
+
+int		get_current_min(char **array)
+{
+
+}
+
+int		get_pos_elem(char **array, char *elem)
+{
+
+}
+
+void	super_algorithm(t_general *g)
+{
+	get_pos_elem()
+}
+
+void	push_swap(t_general *g)
+{
+	g->sort_array = quick_sort_arr(g->sort_array, 0, get_len_array(g->sort_array) - 1);
+	g->middle = get_middle_values(g->sort_array, get_len_array(g->sort_array));
+	super_algorithm(g);
 }

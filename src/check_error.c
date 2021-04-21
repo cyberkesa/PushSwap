@@ -8,10 +8,12 @@ int	check_polusort_stack_a(char **array)
 	size_t len;
 
 	i = 0;
+	if (array[0] == NULL)
+		return(-1);
 	min = get_current_min(array);
 	max = get_current_max(array);
 	len = get_len_array(array);
-	if (min == max + 1 || (min == 0 && max == len))
+	if (min == max + 1 || (min == 0 && max == len - 1))
 	{
 		i = min;
 		while (array[i + 1])
@@ -58,23 +60,27 @@ int	check_polusort_stack_b(char **array)
 	size_t len;
 
 	i = 0;
+	if (array[0] == NULL)
+		return(-1);
 	min = get_current_min(array);
 	max = get_current_max(array);
 	len = get_len_array(array);
-	if (max == min + 1)
+	if (max == min + 1 || (max == 0 && min == len - 1))
 	{
 		i = min;
-		printf("i: %zu\n", i);
-		while (array[i - 1])
+		if (i > 1)
 		{
-			if (i == 1)
-				break ;
-			if (ft_atoi(array[i]) < ft_atoi(array[i - 1]))
-				i--;
-			else
+			while (array[i - 1])
 			{
-				printf("Polusort B: NO!\n");
-				return (0);
+				if (i == 1)
+					break ;
+				if (ft_atoi(array[i]) < ft_atoi(array[i - 1]))
+					i--;
+				else
+				{
+					printf("Polusort B: NO!\n");
+					return (0);
+				}
 			}
 		}
 		if (max != 0)
@@ -164,6 +170,8 @@ int	rotate_master(char **array, char ab)
 	int	max;
 	int	min;
 
+	if (array[0] == NULL)
+		return(-1);
 	len = get_len_array(array);
 	max = get_current_max(array);
 	min = get_current_min(array);
@@ -217,7 +225,8 @@ int	check_sort(char **array)
 	tmpl = get_len_array(array) - 1;
 	while (tmpl--)
 	{
-		printf("%d < %d\n", ft_atoi(array[i]), ft_atoi(array[i + 1]));
+		if (array[i] == NULL)
+			break ;
 		if (ft_atoi(array[i]) < ft_atoi(array[i + 1]))
 			i++;
 		else

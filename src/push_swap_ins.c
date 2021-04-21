@@ -21,12 +21,15 @@ void	rrr_ins(t_general *general)
 void	sa_ins(t_general *general)
 {
 	char	*tmp;
-
+	printf("lol\n");
+	print_array(general->array);
 	if (!(general->array[0]) || !(general->array[1]))
 		return ;
 	tmp = general->array[0];
 	general->array[0] = general->array[1];
 	general->array[1] = tmp;
+	general->ins_num += 1;
+	print_array(general->array);
 }
 
 void	sb_ins(t_general *general)
@@ -38,6 +41,7 @@ void	sb_ins(t_general *general)
 	tmp = general->stack_b[0];
 	general->stack_b[0] = general->stack_b[1];
 	general->stack_b[1] = tmp;
+	general->ins_num += 1;
 }
 
 void	ra_ins(t_general *general)
@@ -58,6 +62,7 @@ void	ra_ins(t_general *general)
 		a++;
 	}
 	general->array[i - 1] = tmp;
+	general->ins_num += 1;
 }
 
 void	rb_ins(t_general *general)
@@ -78,6 +83,7 @@ void	rb_ins(t_general *general)
 		b++;
 	}
 	general->stack_b[i - 1] = tmp;
+	general->ins_num += 1;
 }
 
 void	rra_ins(t_general *general)
@@ -90,6 +96,7 @@ void	rra_ins(t_general *general)
 	while (--len)
 		general->array[len] = general->array[len - 1];
 	general->array[0] = tmp;
+	general->ins_num += 1;
 }
 
 void	rrb_ins(t_general *general)
@@ -102,6 +109,7 @@ void	rrb_ins(t_general *general)
 	while (--len)
 		general->stack_b[len] = general->stack_b[len - 1];
 	general->stack_b[0] = tmp;
+	general->ins_num += 1;
 }
 
 void	pa_ins(t_general *general)
@@ -148,6 +156,7 @@ void	pa_ins(t_general *general)
 	free(general->array);
 	general->array = new_a;
 	general->stack_b = new_b;
+	general->ins_num += 1;
 }
 
 void	pb_ins(t_general *general)
@@ -191,8 +200,9 @@ void	pb_ins(t_general *general)
 	}
 	else
 		new_a[1] = NULL;
-	// free(general->stack_b);
-	// free(general->array);
+	free(general->stack_b);
+	free(general->array);
 	general->array = new_a;
 	general->stack_b = new_b;
+	general->ins_num += 1;
 }

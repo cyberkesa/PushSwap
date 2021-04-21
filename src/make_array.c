@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void		parse_number_values(t_general *general, char **av)
+void	parse_number_values(t_general *general, char **av)
 {
 	size_t	len;
 
