@@ -15,11 +15,11 @@ int	check_sort(char **array)
 			i++;
 		else
 		{
-			// printf("Sort: ERROR\n");
+			printf("Sort: ERROR\n");
 			return (1);
 		}
 	}
-	// printf("Сортировка:			OK\n");
+	printf("Сортировка:			OK\n");
 	return (0);
 }
 

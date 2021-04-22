@@ -19,8 +19,11 @@ typedef struct s_general
 }				t_general;
 
 int				main(int ac, char **av);
+void			ft_exit(t_general *g);
+void			free_array(char **r);
 void			complete_sort(t_general *g);
 void			parse_number_values(t_general *general, char **av);
+int				just_rotate(t_general *g, char **array, int rotate);
 void			ft_error(char *str);
 void			make_array_values(t_general *general, char **av);
 void			print_array(char **array);
@@ -35,6 +38,8 @@ size_t			get_len_array(char **array_for_size);
 int				get_pos_elem(char **array, char *elem);
 char			*get_middle_values(char **array_for_find, size_t lens);
 int				get_min_way(char **array, size_t pos_elem);
+void			alg_three(t_general *g);
+void			alg_five(t_general *g);
 
 void			ra_ins(t_general *general);
 void			rra_ins(t_general *general);
@@ -49,7 +54,6 @@ void			pa_ins(t_general *general);
 void			pb_ins(t_general *general);
 void			add_elem(char *elem, char **array);
 
-size_t			free_array(char **r);
 void			push_realloc(int check, char **array);
 int				rotate_master(char **array, char ab);
 int				get_current_min(char **array);

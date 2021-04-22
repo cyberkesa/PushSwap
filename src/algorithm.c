@@ -93,6 +93,7 @@ void	super_algorithm(t_general *g)
 	int	rotate;
 
 	i = 0;
+	printf("lol\n");
 	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
 	{
 		rotate = rotate_master(g->array, 'a');
@@ -100,7 +101,7 @@ void	super_algorithm(t_general *g)
 	}
 	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
 		insert_sorts(g);
-	// print_array(g->array);
+	print_array(g->array);
 	while (i != g->len_argc)
 	{
 		if (check_sort(g->array) == 0)
@@ -113,32 +114,30 @@ void	super_algorithm(t_general *g)
 		push_b_with_rotate(g, g->array, rotate);
 		i++;
 	}
-	// print_array(g->array);
-	// print_array(g->stack_b);
+	while (get_len_array(g->stack_b) != 0)
+		pb_ins(g);
 }
+
+// void	push_back_array(t_general *g)
+// {
+// 	while (get_len_array(g->stack_b) != 0)
+// 		pb_ins(g);
+// }
 
 void	push_swap(t_general *g)
 {
 	if (check_sort(g->array) == 0)
-		return ;
-	
-
-
+		complete_sort(g);
 	g->sort_array = quick_sort_arr(g->sort_array, 0, get_len_array(g->sort_array) - 1);
 	g->middle = get_middle_values(g->sort_array, get_len_array(g->sort_array));
-	// print_array(g->array);
 	if (g->len_argc == 3)
-	{
-		if (check_polusort_stack_a(g->array) == 1)
-			just_rotate(g, g->array, rotate_master(g->array, 'a'));
-		else
-			sa_ins(g);
-		just_rotate(g, g->array, rotate_master(g->array, 'a'));
-		print_array(g->array);
-	}
-	super_algorithm(g);
-	while (get_len_array(g->stack_b) != 0)
-		pb_ins(g);
-	check_sort(g->array);
-	// print_array(g->array);
+		alg_three(g);
+	// else if (g->len_argc > 3 && g->len_argc <= 5)
+	// 	alg_five(g);
+	else if (g->len_argc > 5)
+		super_algorithm(g);
+	// if (check_sort(g->array) == 0 && get_len_array(g->stack_b) == 0)
+	// 	complete_sort(g);
+	// else
+	// 	ft_error("Сортировка не завершена!\n");
 }

@@ -25,17 +25,18 @@ SRS =		main.c \
 			push_swap_ins.c \
 			get_utils.c \
 			check_sorts.c \
-			complete_sort.c
+			complete.c \
+			light_alg.c
 
-SRCD = 		src/
+SRCD =		src/
 
 OBJECTS =	$(addprefix $(OBJD), $(patsubst %.c, %.o, $(SRS)))
 
-INCLUDES = -I inc/ -I Libft/
+INCLUDES =	-I inc/ -I Libft/
 
-CFLAGS = -O2 -fsanitize=address -g
+CFLAGS =	-O2 -fsanitize=address -g
 
-CC = gcc
+CC =		gcc
 
 all: $(NAME)
 
