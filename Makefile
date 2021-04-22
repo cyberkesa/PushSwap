@@ -26,7 +26,8 @@ SRS =		main.c \
 			get_utils.c \
 			check_sorts.c \
 			complete.c \
-			light_alg.c
+			light_alg.c \
+			utils_alg.c
 
 SRCD =		src/
 

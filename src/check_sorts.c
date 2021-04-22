@@ -14,12 +14,8 @@ int	check_sort(char **array)
 		if (ft_atoi(array[i]) < ft_atoi(array[i + 1]))
 			i++;
 		else
-		{
-			printf("Sort: ERROR\n");
 			return (1);
-		}
 	}
-	printf("Сортировка:			OK\n");
 	return (0);
 }
 

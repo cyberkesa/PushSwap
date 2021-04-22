@@ -15,14 +15,14 @@ void	print_light_array(char **array)
 	printf("\n");
 }
 
-void	print_array(char **array)
+void	print_array(char **array, char *s)
 {
 	size_t	len;
 	size_t	ltmp;
 
 	len = 0;
 	ltmp = get_len_array(array);
-	printf("\nArray:	\n");
+	printf("\n%s:	\n", s);
 	while (ltmp--)
 	{
 		printf("%zu:	[%s]\n", len, array[len]);

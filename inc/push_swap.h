@@ -26,7 +26,7 @@ void			parse_number_values(t_general *general, char **av);
 int				just_rotate(t_general *g, char **array, int rotate);
 void			ft_error(char *str);
 void			make_array_values(t_general *general, char **av);
-void			print_array(char **array);
+void			print_array(char **array, char *s);
 void			print_light_array(char **array);
 void			print_list(t_list *lst);
 void			check_doubles_arr(char **array);
