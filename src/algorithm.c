@@ -77,6 +77,7 @@ void	super_algorithm(t_general *g)
 {
 	size_t	i;
 	int	rotate;
+	int	rotate_flag_next;
 
 	i = 0;
 	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
@@ -88,18 +89,44 @@ void	super_algorithm(t_general *g)
 		insert_sorts(g);
 	// print_array(g->array, "Stack A");
 	// while (i - 1 != get_pos_elem(g->sort_array, g->middle))
-	while (i != g->len_argc)
+	while (i != g->len_argc / 2)
 	{
 		if (check_sort(g->array) == 0)
 			break ;
+		if (g->flag == 1)
+		{
+			sb_ins(g); //maybe sa ++
+			g->flag = 0;
+		}
 		rotate = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i]));
-		push_b_with_rotate(g, g->array, rotate);
-		if (ft_atoi(g->array[0]) > ft_atoi(g->array[1]))
-			sa_ins(g);
+		rotate_flag_next = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 1]));
+
+		// if ((abs)(rotate) < (abs)(rotate_flag_next))
+			push_b_with_rotate(g, g->array, rotate);
+		// else
+		// {
+		// 	push_b_with_rotate(g, g->array, rotate_flag_next);
+		// 	g->flag = 1;
+		// }
+
+		// if (ft_atoi(g->array[0]) > ft_atoi(g->array[1]))
+		// 	if (get_pos_elem(g->sort_array, g->array[0]) > (int)(g->len_argc / 2)
+		// 		&& get_pos_elem(g->sort_array, g->array[1]) > (int)(g->len_argc / 2))
+				// {
+					// printf("%d\n", (int)(g->len_argc / 2));
+					// printf("[%d] - %s", get_pos_elem(g->sort_array, g->array[0]),
+					// g->sort_array[get_pos_elem(g->sort_array, g->array[0])]);
+					// printf(" > [%d] - %s\n", get_pos_elem(g->sort_array, g->array[1]),
+					// g->sort_array[get_pos_elem(g->sort_array, g->array[1])]);
+					// print_light_array(g->array);
+					// print_light_array(g->sort_array);
+					// sa_ins(g);
+					// exit(0);
+				// }
 		i++;
 	}
-	// print_array(g->stack_b, "Stack B");
-	// print_array(g->array, "Stack A");
+	print_array(g->stack_b, "Stack B");
+	print_array(g->array, "Stack A");
 	while (get_len_array(g->stack_b) != 0)
 		pb_ins(g);
 	// printf("\nFinal sort: ");

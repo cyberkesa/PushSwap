@@ -15,6 +15,7 @@ typedef struct s_general
 	char		**sort_array;
 	char		**stack_b;
 	char		*middle;
+	int			flag;
 
 }				t_general;
 
