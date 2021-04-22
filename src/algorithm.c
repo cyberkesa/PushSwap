@@ -89,20 +89,35 @@ void	super_algorithm(t_general *g)
 		insert_sorts(g);
 	// print_array(g->array, "Stack A");
 	// while (i - 1 != get_pos_elem(g->sort_array, g->middle))
-	while (i != g->len_argc / 2)
+	while (i != g->len_argc - 1)
 	{
 		if (check_sort(g->array) == 0)
 			break ;
-		if (g->flag == 1)
+		// if (g->flag == 1)
+		// {
+		// 	sb_ins(g); //maybe sa ++
+		// 	g->flag = 0;
+		// }
+		if (check_polusort_stack_a(g->array) == 0)
 		{
-			sb_ins(g); //maybe sa ++
-			g->flag = 0;
+			rotate = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i]));
+			rotate_flag_next = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 1]));
+			push_b_with_rotate(g, g->array, rotate);
 		}
-		rotate = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i]));
-		rotate_flag_next = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 1]));
+		else
+		{
+			// print_array(g->array, "check A");
+			// print_array(g->stack_b, "check B");
+			rotate = rotate_master(g->array, 'a');
+			// printf("rotate: %d\n", rotate);
+			just_rotate(g, g->array, rotate);
+			// print_array(g->array, "check A");
+			// print_array(g->stack_b, "check B");
+		}
+		// if (ft_atoi(g->array[0]) > ft_atoi(g->array[1]))
+		// 	sa_ins(g);
 
 		// if ((abs)(rotate) < (abs)(rotate_flag_next))
-			push_b_with_rotate(g, g->array, rotate);
 		// else
 		// {
 		// 	push_b_with_rotate(g, g->array, rotate_flag_next);
@@ -125,12 +140,12 @@ void	super_algorithm(t_general *g)
 				// }
 		i++;
 	}
-	print_array(g->stack_b, "Stack B");
-	print_array(g->array, "Stack A");
+	// print_array(g->stack_b, "Stack B");
+	// print_array(g->array, "Stack A");
 	while (get_len_array(g->stack_b) != 0)
 		pb_ins(g);
-	// printf("\nFinal sort: ");
-	// print_light_array(g->array);
+	printf("\nFinal sort: ");
+	print_light_array(g->array);
 	complete_sort(g);
 }
 
