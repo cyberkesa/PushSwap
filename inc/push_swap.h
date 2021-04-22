@@ -69,5 +69,6 @@ int				insert_sorts(t_general *g);
 int				push_b_with_rotate(t_general *g, char **array, int rotate);
 
 
+void			new_alg(t_general *g);
 
 #endif

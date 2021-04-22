@@ -16,18 +16,20 @@ void	ft_error(char *str)
 
 void	push_swap(t_general *g)
 {
+	print_array(g->sort_array, "First");
 	g->sort_array = quick_sort_arr(g->sort_array, 0,
 	get_len_array(g->sort_array) - 1);
 	g->middle = get_middle_values(g->sort_array,
 	get_len_array(g->sort_array));
-	if (check_sort(g->array) == 0)
-		complete_sort(g);
-	else if (g->len_argc == 3)
+	// if (check_sort(g->array) == 0)
+	// 	complete_sort(g);
+	if (g->len_argc == 3)
 		alg_three(g);
 	else if (g->len_argc > 3 && g->len_argc <= 5)
 		alg_five(g);
-	// else if (g->len_argc > 5)
-	// 	super_algorithm(g);
+	else if (g->len_argc > 5)
+		super_algorithm(g);
+	// new_alg(g);
 }
 
 int	main(int ac, char **av)

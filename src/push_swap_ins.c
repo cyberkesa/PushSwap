@@ -169,7 +169,7 @@ void	pa_ins(t_general *general)
 	general->array = new_a;
 	general->stack_b = new_b;
 	general->ins_num += 1;
-	printf("pa\n");
+	printf("pb\n");
 }
 
 void	pb_ins(t_general *general)
@@ -218,5 +218,5 @@ void	pb_ins(t_general *general)
 	general->array = new_a;
 	general->stack_b = new_b;
 	general->ins_num += 1;
-	printf("pb\n");
+	printf("pa\n");
 }
