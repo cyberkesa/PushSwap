@@ -1,13 +1,13 @@
 #include "push_swap.h"
 
-int		maybe_sa(char **array)
+int	maybe_sa(char **array)
 {
 	if (array[0] > array[1])
 		return (1);
 	return (0);
 }
 
-int		insert_sorts(t_general *g)
+int	insert_sorts(t_general *g)
 {
 	if (check_sort(g->array) == 1
 	&& get_len_array(g->stack_b) == 0)
@@ -15,7 +15,7 @@ int		insert_sorts(t_general *g)
 	return (0);
 }
 
-int		get_min_way(char **array, size_t pos_elem)
+int	get_min_way(char **array, size_t pos_elem)
 {
 	size_t	len;
 	int	rotate;
@@ -29,15 +29,23 @@ int		get_min_way(char **array, size_t pos_elem)
 	return (rotate);
 }
 
-void	check_sa(t_general *g, char **array)
+int	check_sa(t_general *g, char **array)
 {
 	if (array[0] > array[1])
-		sa_ins(g);
+		return (1);
+	return (0);
 }
 
-int		push_b_with_rotate(t_general *g, char **array, int rotate)
+int	check_sb(t_general *g, char **array)
 {
-	printf("rotate: %d\n", rotate);
+	if (array[0] < array[1])
+		return (1);
+	return (0);
+}
+
+int	push_b_with_rotate(t_general *g, char **array, int rotate)
+{
+	// printf("rotate: %d\n", rotate);
 	if (rotate == 1 && maybe_sa(array) == 1)
 	{
 		sa_ins(g);
@@ -55,7 +63,27 @@ int		push_b_with_rotate(t_general *g, char **array, int rotate)
 			rra_ins(g);
 	}
 	pa_ins(g);
-	check_sa(g, g->array);
+	return (rotate);
+}
+
+int		just_rotate(t_general *g, char **array, int rotate)
+{
+	// printf("rotate: %d\n", rotate);
+	if (rotate == 1 && maybe_sa(array) == 1)
+	{
+		sa_ins(g);
+		return (0);
+	}
+	else if (rotate > 0)
+	{
+		while (rotate--)
+			ra_ins(g);
+	}
+	else if (rotate < 0)
+	{
+		while (rotate++ != 0)
+			rra_ins(g);
+	}
 	return (rotate);
 }
 
@@ -65,30 +93,52 @@ void	super_algorithm(t_general *g)
 	int	rotate;
 
 	i = 0;
-	if (check_polusort_stack_a(g->array) == 1)
+	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
 	{
-		rotate_master(g->array, 'a');
-		
+		rotate = rotate_master(g->array, 'a');
+		just_rotate(g, g->array, rotate);
 	}
-	print_array(g->array);
-	while (i != g->len_argc / 2)//get_pos_elem(g->sort_array, g->middle))
+	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
+		insert_sorts(g);
+	// print_array(g->array);
+	while (i != g->len_argc)
 	{
+		if (check_sort(g->array) == 0)
+			break ;
+		if (check_sa(g, g->array) == 1 && check_sb(g, g->stack_b) == 1)
+			ss_ins(g);
+		else if (check_sa(g, g->array) == 1 && check_sb(g, g->stack_b) == 0)
+			sa_ins(g);
 		rotate = get_pos_elem(g->array, g->sort_array[i]);
 		push_b_with_rotate(g, g->array, rotate);
 		i++;
 	}
-	// printf("rotate: %d\n", rotate);
-	print_array(g->array);
-	print_array(g->stack_b);
+	// print_array(g->array);
+	// print_array(g->stack_b);
 }
 
 void	push_swap(t_general *g)
 {
+	if (check_sort(g->array) == 0)
+		return ;
+	
+
+
 	g->sort_array = quick_sort_arr(g->sort_array, 0, get_len_array(g->sort_array) - 1);
 	g->middle = get_middle_values(g->sort_array, get_len_array(g->sort_array));
-	print_array(g->array);
+	// print_array(g->array);
+	if (g->len_argc == 3)
+	{
+		if (check_polusort_stack_a(g->array) == 1)
+			just_rotate(g, g->array, rotate_master(g->array, 'a'));
+		else
+			sa_ins(g);
+		just_rotate(g, g->array, rotate_master(g->array, 'a'));
+		print_array(g->array);
+	}
 	super_algorithm(g);
 	while (get_len_array(g->stack_b) != 0)
 		pb_ins(g);
-	print_array(g->array);
+	check_sort(g->array);
+	// print_array(g->array);
 }

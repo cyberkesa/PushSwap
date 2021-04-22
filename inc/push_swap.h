@@ -19,6 +19,7 @@ typedef struct s_general
 }				t_general;
 
 int				main(int ac, char **av);
+void			complete_sort(t_general *g);
 void			parse_number_values(t_general *general, char **av);
 void			ft_error(char *str);
 void			make_array_values(t_general *general, char **av);

@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void				ft_error(char *str)
+void	ft_error(char *str)
 {
-	size_t			i;
+	size_t	i;
 
 	i = 0;
 	if (str)
@@ -14,7 +14,7 @@ void				ft_error(char *str)
 	exit (0);
 }
 
-int					main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_general	g;
 	t_list	*lst;
@@ -27,7 +27,6 @@ int					main(int ac, char **av)
 	make_array_values(&g, av);
 	check_doubles_arr(g.array);
 	push_swap(&g);
-	check_sort(g.array);
-	printf("Совершено операций: %zu\nКоличество аргументов подано: %zu\n", g.ins_num, g.len_argc);
+	complete_sort(&g);
 	return (0);
 }

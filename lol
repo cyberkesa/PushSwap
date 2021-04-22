@@ -1,22 +1,4 @@
-ra
-ra
-pb
-pb
-ra
-ra
-pb
-pa
-pa
-ra
-pa
-ra
-ra
-ra
-ra
-pb
-ra
-pa
-ra
+
 
 
 500 RANDOM

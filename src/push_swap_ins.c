@@ -4,32 +4,39 @@ void	ss_ins(t_general *general)
 {
 	sa_ins(general);
 	sb_ins(general);
+	general->ins_num--;
+	printf("ss\n");
 }
 
 void	rr_ins(t_general *general)
 {
 	ra_ins(general);
 	rb_ins(general);
+	general->ins_num--;
+	printf("rr\n");
 }
 
 void	rrr_ins(t_general *general)
 {
 	rra_ins(general);
 	rrb_ins(general);
+	general->ins_num--;
+	printf("rrr\n");
 }
 
 void	sa_ins(t_general *general)
 {
 	char	*tmp;
-	printf("lol\n");
-	print_array(general->array);
+
+	// print_array(general->array);
 	if (!(general->array[0]) || !(general->array[1]))
 		return ;
 	tmp = general->array[0];
 	general->array[0] = general->array[1];
 	general->array[1] = tmp;
 	general->ins_num += 1;
-	print_array(general->array);
+	// print_array(general->array);
+	printf("sa\n");
 }
 
 void	sb_ins(t_general *general)
@@ -42,6 +49,7 @@ void	sb_ins(t_general *general)
 	general->stack_b[0] = general->stack_b[1];
 	general->stack_b[1] = tmp;
 	general->ins_num += 1;
+	printf("sb\n");
 }
 
 void	ra_ins(t_general *general)
@@ -63,6 +71,7 @@ void	ra_ins(t_general *general)
 	}
 	general->array[i - 1] = tmp;
 	general->ins_num += 1;
+	printf("ra\n");
 }
 
 void	rb_ins(t_general *general)
@@ -84,6 +93,7 @@ void	rb_ins(t_general *general)
 	}
 	general->stack_b[i - 1] = tmp;
 	general->ins_num += 1;
+	printf("rb\n");
 }
 
 void	rra_ins(t_general *general)
@@ -97,6 +107,7 @@ void	rra_ins(t_general *general)
 		general->array[len] = general->array[len - 1];
 	general->array[0] = tmp;
 	general->ins_num += 1;
+	printf("rra\n");
 }
 
 void	rrb_ins(t_general *general)
@@ -110,6 +121,7 @@ void	rrb_ins(t_general *general)
 		general->stack_b[len] = general->stack_b[len - 1];
 	general->stack_b[0] = tmp;
 	general->ins_num += 1;
+	printf("rrb\n");
 }
 
 void	pa_ins(t_general *general)
@@ -157,6 +169,7 @@ void	pa_ins(t_general *general)
 	general->array = new_a;
 	general->stack_b = new_b;
 	general->ins_num += 1;
+	printf("pa\n");
 }
 
 void	pb_ins(t_general *general)
@@ -205,4 +218,5 @@ void	pb_ins(t_general *general)
 	general->array = new_a;
 	general->stack_b = new_b;
 	general->ins_num += 1;
+	printf("pb\n");
 }

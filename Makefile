@@ -25,6 +25,7 @@ SRS =		main.c \
 			push_swap_ins.c \
 			get_utils.c \
 			check_sorts.c \
+			complete_sort.c
 
 SRCD = 		src/
 

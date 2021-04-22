@@ -71,8 +71,6 @@ int	rotate_master(char **array, char ab)
 		ra_x = max + 1;
 	if (len - min <= (int)(len / 2))
 		rra_x = len - min;
-	printf("ra: %d\n", ra_x);
-	printf("rra: %d\n", rra_x);
 	if (rra_x != 0)
 		return (rra_x * -1);
 	if (ra_x != 0)

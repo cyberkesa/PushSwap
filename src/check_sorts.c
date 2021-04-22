@@ -15,11 +15,11 @@ int	check_sort(char **array)
 			i++;
 		else
 		{
-			printf("Sort: ERROR\n");
+			// printf("Sort: ERROR\n");
 			return (1);
 		}
 	}
-	printf("Sort: OK\n");
+	// printf("Сортировка:			OK\n");
 	return (0);
 }
 
@@ -45,7 +45,7 @@ int	check_polusort_stack_a(char **array)
 				i++;
 			else
 			{
-				printf("Polusort A: NO!\n");
+				// printf("Polusort A: NO!\n");
 				return (0);
 			}
 		}
@@ -59,7 +59,7 @@ int	check_polusort_stack_a(char **array)
 						i++;
 					else
 					{
-						printf("Polusort A: NO!\n");
+						// printf("Polusort A: NO!\n");
 						return (0);
 					}
 				}
@@ -68,10 +68,10 @@ int	check_polusort_stack_a(char **array)
 	}
 	else
 	{
-		printf("Polusort A: NO!\n");
+		// printf("Polusort A: NO!\n");
 		return (0);
 	}
-	printf("Polusort A: OK!\n");
+	// printf("Polusort A: OK!\n");
 	return (1);
 }
 
@@ -101,7 +101,7 @@ int	check_polusort_stack_b(char **array)
 					i--;
 				else
 				{
-					printf("Polusort B: NO!\n");
+					// printf("Polusort B: NO!\n");
 					return (0);
 				}
 			}
@@ -117,7 +117,7 @@ int	check_polusort_stack_b(char **array)
 						i++;
 					else
 					{
-						printf("Polusort B: NO!\n");
+						// printf("Polusort B: NO!\n");
 						return (0);
 					}
 				}
@@ -126,9 +126,9 @@ int	check_polusort_stack_b(char **array)
 	}
 	else
 	{
-		printf("Polusort B: NO!\n");
+		// printf("Polusort B:	NO!\n");
 		return (0);
 	}
-	printf("Polusort B: OK!\n");
+	// printf("Polusort B:	OK!\n");
 	return (1);
 }
