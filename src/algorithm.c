@@ -54,7 +54,6 @@ int	push_b_with_rotate(t_general *g, char **array, int rotate)
 
 int	just_rotate(t_general *g, char **array, int rotate)
 {
-	// printf("rotate: %d\n", rotate);
 	if (rotate == 1 && maybe_sa(array) == 1)
 	{
 		sa_ins(g);
@@ -73,45 +72,16 @@ int	just_rotate(t_general *g, char **array, int rotate)
 	return (rotate);
 }
 
-void	super_algorithm(t_general *g)
-{
-	size_t	i;
-	int	rotate;
-
-	i = 0;
-
-	if (ft_atoi(g->array[3]) == ft_atoi(g->sort_array[0])
-		&& ft_atoi(g->array[0]) > ft_atoi(g->array[1]) && g->len_argc == 5)
-		sa_ins(g);
-	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
-	{
-		rotate = rotate_master(g->array, 'a');
-		just_rotate(g, g->array, rotate);
-	}
-	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
-		insert_sorts(g);
-	while (i != g->len_argc)
-	{
-		if (check_sort(g->array) == 0)
-			break ;
-		rotate = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i]));
-		push_b_with_rotate(g, g->array, rotate);
-		if (ft_atoi(g->array[0]) > ft_atoi(g->array[1]))
-			sa_ins(g);
-		i++;
-	}
-	while (get_len_array(g->stack_b) != 0)
-		pb_ins(g);
-	complete_sort(g);
-}
-
 // void	super_algorithm(t_general *g)
 // {
 // 	size_t	i;
 // 	int	rotate;
-// 	int	rotate_flag_next;
 
 // 	i = 0;
+
+// 	if (ft_atoi(g->array[3]) == ft_atoi(g->sort_array[0])
+// 		&& ft_atoi(g->array[0]) > ft_atoi(g->array[1]) && g->len_argc == 5)
+// 		sa_ins(g);
 // 	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
 // 	{
 // 		rotate = rotate_master(g->array, 'a');
@@ -119,71 +89,90 @@ void	super_algorithm(t_general *g)
 // 	}
 // 	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
 // 		insert_sorts(g);
-// 	// print_array(g->array, "Stack A");
-// 	// while (i - 1 != get_pos_elem(g->sort_array, g->middle))
-// 	while (i != g->len_argc - 1)
+// 	while (i != g->len_argc)
 // 	{
 // 		if (check_sort(g->array) == 0)
 // 			break ;
-// 		// if (g->flag == 1)
-// 		// {
-// 		// 	sb_ins(g); //maybe sa ++
-// 		// 	g->flag = 0;
-// 		// }
-// 		if (check_polusort_stack_a(g->array) == 0)
-// 		{
-// 			rotate = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i]));
-// 			rotate_flag_next = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 1]));
-// 			push_b_with_rotate(g, g->array, rotate);
-// 		}
-// 		else
-// 		{
-// 			// print_array(g->array, "check A");
-// 			// print_array(g->stack_b, "check B");
-// 			rotate = rotate_master(g->array, 'a');
-// 			// printf("rotate: %d\n", rotate);
-// 			just_rotate(g, g->array, rotate);
-// 			// print_array(g->array, "check A");
-// 			// print_array(g->stack_b, "check B");
-// 		}
-// 		// if (ft_atoi(g->array[0]) > ft_atoi(g->array[1]))
-// 		// 	sa_ins(g);
-
-// 		// if ((abs)(rotate) < (abs)(rotate_flag_next))
-// 		// else
-// 		// {
-// 		// 	push_b_with_rotate(g, g->array, rotate_flag_next);
-// 		// 	g->flag = 1;
-// 		// }
-
-// 		// if (ft_atoi(g->array[0]) > ft_atoi(g->array[1]))
-// 		// 	if (get_pos_elem(g->sort_array, g->array[0]) > (int)(g->len_argc / 2)
-// 		// 		&& get_pos_elem(g->sort_array, g->array[1]) > (int)(g->len_argc / 2))
-// 				// {
-// 					// printf("%d\n", (int)(g->len_argc / 2));
-// 					// printf("[%d] - %s", get_pos_elem(g->sort_array, g->array[0]),
-// 					// g->sort_array[get_pos_elem(g->sort_array, g->array[0])]);
-// 					// printf(" > [%d] - %s\n", get_pos_elem(g->sort_array, g->array[1]),
-// 					// g->sort_array[get_pos_elem(g->sort_array, g->array[1])]);
-// 					// print_light_array(g->array);
-// 					// print_light_array(g->sort_array);
-// 					// sa_ins(g);
-// 					// exit(0);
-// 				// }
+// 		rotate = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i]));
+// 		push_b_with_rotate(g, g->array, rotate);
+// 		if (ft_atoi(g->array[0]) > ft_atoi(g->array[1]))
+// 			sa_ins(g);
 // 		i++;
 // 	}
-// 	// print_array(g->stack_b, "Stack B");
-// 	// print_array(g->array, "Stack A");
 // 	while (get_len_array(g->stack_b) != 0)
 // 		pb_ins(g);
-// 	printf("\nFinal sort: ");
-// 	print_light_array(g->array);
 // 	complete_sort(g);
 // }
 
-// void	push_back_array(t_general *g)
-// {
-// 	while (get_len_array(g->stack_b) != 0)
-// 		pb_ins(g);
-// }
+void	super_algorithm(t_general *g)
+{
+	size_t	i;
+	int	rotate_1;
+	int	rotate_2;
+	int	rotate_3;
+	int	rotate_4;
+	int	rotate_5;
+	int	rotate_6;
+	int	rotate_7;
+	int	rotate_8;
+	int	rotate_9;
+	int	rotate_10;
 
+	i = 0;
+
+	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
+	{
+		int rotate;
+		rotate = rotate_master(g->array, 'a');
+		just_rotate(g, g->array, rotate);
+	}
+	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
+		insert_sorts(g);
+
+	while (i != g->len_argc)
+	{
+		if (check_sort(g->array) == 0)
+			break ;
+		rotate_1 = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i]));
+		rotate_2 = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 1]));
+		rotate_3 = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 2]));
+		rotate_4 = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 3]));
+		rotate_5 = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 4]));
+		rotate_6 = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 5]));
+		rotate_7 = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 6]));
+		rotate_8 = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 7]));
+		rotate_9 = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 8]));
+		rotate_10 = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + 9]));
+		printf("%d	", (abs)(rotate_1));
+		printf("%d	", (abs)(rotate_2));
+		printf("%d	", (abs)(rotate_3));
+		printf("%d	", (abs)(rotate_4));
+		printf("%d	", (abs)(rotate_5));
+		printf("%d	", (abs)(rotate_6));
+		printf("%d	", (abs)(rotate_7));
+		printf("%d	", (abs)(rotate_8));
+		printf("%d	", (abs)(rotate_9));
+		printf("%d	", (abs)(rotate_10));
+		int	rot[10];
+		rot[0] = rotate_1;
+		rot[1] = rotate_2;
+		rot[2] = rotate_3;
+		rot[3] = rotate_4;
+		rot[4] = rotate_5;
+		rot[5] = rotate_6;
+		rot[6] = rotate_7;
+		rot[7] = rotate_8;
+		rot[8] = rotate_9;
+		rot[9] = rotate_10;
+		int pos_in_rot = rot_find_min(rot);
+		printf("rot[0] %d\n", rot[0]);
+		// if ((abs)(rotate_second) < (abs)(rotate))
+		// 	push_b_with_rotate(g, g->array, rotate_second);
+		// else
+		// 	push_b_with_rotate(g, g->array, rotate);
+		i += 10;
+	}
+	while (get_len_array(g->stack_b) != 0)
+		pb_ins(g);
+	complete_sort(g);
+}

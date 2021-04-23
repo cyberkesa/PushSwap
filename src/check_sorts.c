@@ -40,10 +40,7 @@ int	check_polusort_stack_a(char **array)
 			if (ft_atoi(array[i]) < ft_atoi(array[i + 1]))
 				i++;
 			else
-			{
-				// printf("Polusort A: NO!\n");
 				return (0);
-			}
 		}
 		if (max != 0)
 		{
@@ -54,20 +51,13 @@ int	check_polusort_stack_a(char **array)
 					if (ft_atoi(array[i]) < ft_atoi(array[i + 1]))
 						i++;
 					else
-					{
-						// printf("Polusort A: NO!\n");
 						return (0);
-					}
 				}
 			}
 		}
 	}
 	else
-	{
-		// printf("Polusort A: NO!\n");
 		return (0);
-	}
-	// printf("Polusort A: OK!\n");
 	return (1);
 }
 
@@ -96,10 +86,7 @@ int	check_polusort_stack_b(char **array)
 				if (ft_atoi(array[i]) < ft_atoi(array[i - 1]))
 					i--;
 				else
-				{
-					// printf("Polusort B: NO!\n");
 					return (0);
-				}
 			}
 		}
 		if (max != 0)
@@ -112,19 +99,12 @@ int	check_polusort_stack_b(char **array)
 					if (ft_atoi(array[i]) > ft_atoi(array[i + 1]))
 						i++;
 					else
-					{
-						// printf("Polusort B: NO!\n");
 						return (0);
-					}
 				}
 			}
 		}
 	}
 	else
-	{
-		// printf("Polusort B:	NO!\n");
 		return (0);
-	}
-	// printf("Polusort B:	OK!\n");
 	return (1);
 }
