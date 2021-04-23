@@ -6,6 +6,8 @@ int	check_sort(char **array)
 	size_t	tmpl;
 
 	i = 0;
+	if (get_len_array(array) == 0)
+		return (1);
 	tmpl = get_len_array(array) - 1;
 	while (tmpl--)
 	{

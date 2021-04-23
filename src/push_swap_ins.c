@@ -54,9 +54,9 @@ void	sb_ins(t_general *general)
 
 void	ra_ins(t_general *general)
 {
-	size_t	len_in_stack_a;
-	size_t	i;
-	size_t	a;
+	register size_t	len_in_stack_a;
+	register size_t	i;
+	register size_t	a;
 	char	*tmp;
 
 	len_in_stack_a = get_len_array(general->array);
@@ -76,9 +76,9 @@ void	ra_ins(t_general *general)
 
 void	rb_ins(t_general *general)
 {
-	size_t	len_in_stack_b;
-	size_t	i;
-	size_t	b;
+	register size_t	len_in_stack_b;
+	register size_t	i;
+	register size_t	b;
 	char	*tmp;
 
 	len_in_stack_b = get_len_array(general->stack_b);
@@ -98,7 +98,7 @@ void	rb_ins(t_general *general)
 
 void	rra_ins(t_general *general)
 {
-	size_t	len;
+	register size_t	len;
 	char	*tmp;
 
 	len = get_len_array(general->array);
@@ -112,7 +112,7 @@ void	rra_ins(t_general *general)
 
 void	rrb_ins(t_general *general)
 {
-	size_t	len;
+	register size_t	len;
 	char	*tmp;
 
 	len = get_len_array(general->stack_b);
@@ -128,10 +128,10 @@ void	pa_ins(t_general *general)
 {
 	char	**new_a;
 	char	**new_b;
-	size_t	len_a;
-	size_t	len_b;
-	size_t	i;
-	size_t	a;
+	register size_t	len_a;
+	register size_t	len_b;
+	register size_t	i;
+	register size_t	a;
 
 	len_a = get_len_array(general->array);
 	len_b = get_len_array(general->stack_b);
@@ -176,10 +176,10 @@ void	pb_ins(t_general *general)
 {
 	char	**new_a;
 	char	**new_b;
-	size_t	len_a;
-	size_t	len_b;
-	size_t	i;
-	size_t	a;
+	register size_t	len_a;
+	register size_t	len_b;
+	register size_t	i;
+	register size_t	a;
 
 	len_a = get_len_array(general->array);
 	len_b = get_len_array(general->stack_b);

@@ -28,7 +28,8 @@ SRS =		main.c \
 			complete.c \
 			light_alg.c \
 			utils_alg.c \
-			alg.c
+			alg.c \
+			back_push.c
 
 SRCD =		src/
 
