@@ -11,6 +11,8 @@ typedef struct s_general
 	size_t		len_argc;
 	size_t		len_arr;
 	size_t		ins_num;
+	char		**lol;
+	char		**array_copy;
 	char		**array;
 	char		**sort_array;
 	char		**stack_b;
@@ -70,5 +72,6 @@ int				push_b_with_rotate(t_general *g, char **array, int rotate);
 
 
 void			new_alg(t_general *g);
+void			back_to_you(t_general *g);
 
 #endif

@@ -237,9 +237,11 @@ void	super_algorithm(t_general *g)
 		// 	push_b_with_rotate(g, g->array, rotate);
 		i += 10;
 	}
+	if (get_len_array(g->array) != 0)
+		print_array(g->array, "CHTO");
 	// while (get_len_array(g->stack_b) != 0)
 	// 	pb_ins(g);
 	back_to_you(g);
-	print_array(g->stack_b, "Kek");
+	// print_array(g->stack_b, "Kek");
 	// complete_sort(g);
 }
