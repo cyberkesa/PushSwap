@@ -22,11 +22,14 @@ SRS =		main.c \
 			prints.c \
 			algorithm.c \
 			check_error.c \
-			push_swap_ins.c \
+			ins_push.c \
+			ins_swap.c \
+			ins_rotate.c \
+			ins_adjacent.c \
 			get_utils.c \
 			check_sorts.c \
 			complete.c \
-			light_alg.c \
+			algorithm_before.c \
 			utils_alg.c \
 			alg.c \
 			back_push.c

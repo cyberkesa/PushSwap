@@ -1,57 +1,5 @@
 #include "push_swap.h"
 
-int	get_current_max(char **array)
-{
-	int	max;
-	size_t	p;
-	int	pos;
-	int	i;
-
-	max = ft_atoi(array[0]);
-	p = 1;
-	while (array[p] != NULL)
-	{
-		if (ft_atoi(array[p]) > max)
-			max = ft_atoi(array[p]);
-		p++;
-	}
-	pos = 0;
-	i = 0;
-	while (array[i] != NULL)
-	{
-		if (ft_atoi(array[i]) == max)
-			pos = i;
-		i++;
-	}
-	return (pos);
-}
-
-int	get_current_min(char **array)
-{
-	int	min;
-	size_t	p;
-	int	pos;
-	int	i;
-
-	p = 1;
-	min = ft_atoi(array[0]);
-	while (array[p] != NULL)
-	{
-		if (ft_atoi(array[p]) < min)
-			min = ft_atoi(array[p]);
-		p++;
-	}
-	pos = 0;
-	i = 0;
-	while (array[i] != NULL)
-	{
-		if (ft_atoi(array[i]) == min)
-			pos = i;
-		i++;
-	}
-	return (pos);
-}
-
 int	rotate_master(char **array, char ab)
 {
 	size_t	len;
