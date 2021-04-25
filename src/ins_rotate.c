@@ -64,10 +64,13 @@ void	rrb_ins(t_general *g)
 	char	*tmp;
 
 	len = get_len_array(g->stack_b);
-	if (len == 0)
-	{
-		print_array(g->stack_b, "rrb sigv");
-	}
+	// 	print_array(g->stack_b, "rrb sigv");
+	// 	print_array(g->array, "rrb sigv");
+	// if (len == 0)
+	// {
+	// 	// sb_ins(g);
+	// 	return ;
+	// }
 	tmp = g->stack_b[len - 1];
 	while (--len)
 		g->stack_b[len] = g->stack_b[len - 1];

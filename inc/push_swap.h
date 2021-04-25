@@ -74,4 +74,8 @@ int				push_b_with_rotate(t_general *g, char **array, int rotate);
 void			new_alg(t_general *g);
 void			back_to_you(t_general *g);
 
+
+int	push_a_with_rotate(t_general *g, char **array, int rotate);
+int	push_b_with_rotate(t_general *g, char **array, int rotate);
+
 #endif

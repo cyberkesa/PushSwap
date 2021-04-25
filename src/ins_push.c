@@ -15,7 +15,6 @@ void	pa_ins(t_general *g)
 		return;
 	new_a = (char **)malloc(sizeof(char *) * (len_a + 2));
 	new_b = (char **)malloc(sizeof(char *) * (len_b));
-
 	i = 0;
 	a = 1;
 	while (a != len_b)

@@ -32,7 +32,8 @@ SRS =		main.c \
 			algorithm_before.c \
 			utils_alg.c \
 			alg.c \
-			back_push.c
+			back_push.c \
+			super_ins_push_rotate.c
 
 SRCD =		src/
 

@@ -40,6 +40,6 @@ void	alg_five(t_general *g)
 		i++;
 	}
 	while (get_len_array(g->stack_b) != 0)
-		pb_ins(g);
+		pa_ins(g);
 	complete_sort(g);
 }

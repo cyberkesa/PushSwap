@@ -4,14 +4,12 @@ void	sa_ins(t_general *general)
 {
 	char	*tmp;
 
-	// print_array(general->array);
 	if (!(general->array[0]) || !(general->array[1]))
 		return ;
 	tmp = general->array[0];
 	general->array[0] = general->array[1];
 	general->array[1] = tmp;
 	general->ins_num += 1;
-	// print_array(general->array);
 	printf("sa\n");
 }
 

@@ -27,5 +27,5 @@ void	complete_sort(t_general *g)
 	printf("Совершено операций:		%zu\nКоличество аргументов подано:	%zu\n", g->ins_num, g->len_argc);
 	print_light_array(g->array);
 	// print_light_array(g->sort_array);
-	// ft_exit(g);
+	ft_exit(g);
 }

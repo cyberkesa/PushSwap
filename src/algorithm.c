@@ -29,28 +29,6 @@ int	check_sb(t_general *g, char **array)
 	return (0);
 }
 
-int	push_b_with_rotate(t_general *g, char **array, int rotate)
-{
-	if (rotate == 1 && maybe_sa(array) == 1)
-	{
-		sa_ins(g);
-		pa_ins(g);
-		return (0);
-	}
-	else if (rotate > 0)
-	{
-		while (rotate--)
-			ra_ins(g);
-	}
-	else if (rotate < 0)
-	{
-		while (rotate++ != 0)
-			rra_ins(g);
-	}
-	pb_ins(g);
-	return (rotate);
-}
-
 int	just_rotate(t_general *g, char **array, int rotate)
 {
 	if (rotate == 1 && maybe_sa(array) == 1)
@@ -100,7 +78,7 @@ void	super_algorithm(t_general *g)
 	int	cr;
 	int	a;
 
-	if (g->len_argc > 6 && g->len_argc < 250)
+	if (g->len_argc > 5 && g->len_argc < 250)
 		cr = 10;
 	else if (g->len_argc > 250 && g->len_argc < 800)
 		cr = 50;
