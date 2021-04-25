@@ -79,5 +79,7 @@ int	just_rotate_a(t_general *g, char **array, int rotate);
 int	just_rotate_b(t_general *g, char **array, int rotate);
 int	push_a_with_rotate(t_general *g, char **array, int rotate);
 int	push_b_with_rotate(t_general *g, char **array, int rotate);
+void	new_super(t_general *g);
+int	rot_find_min(int *array, int len);
 
 #endif

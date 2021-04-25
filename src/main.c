@@ -27,7 +27,8 @@ void	push_swap(t_general *g)
 	else if (g->len_argc > 3 && g->len_argc < 6)
 		alg_five(g);
 	else if (g->len_argc > 5)
-		new_alg(g);
+		new_super(g);
+		// new_alg(g);
 		// super_algorithm(g);
 }
 
