@@ -25,7 +25,7 @@ void	alg_five(t_general *g)
 	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
 	{
 		rotate = rotate_master(g->array, 'a');
-		just_rotate(g, g->array, rotate);
+		just_rotate_a(g, g->array, rotate);
 	}
 	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
 		insert_sorts(g);

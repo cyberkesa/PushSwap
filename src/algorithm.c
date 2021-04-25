@@ -29,7 +29,7 @@ int	check_sb(t_general *g, char **array)
 	return (0);
 }
 
-int	just_rotate(t_general *g, char **array, int rotate)
+int	just_rotate_a(t_general *g, char **array, int rotate)
 {
 	if (rotate == 1 && maybe_sa(array) == 1)
 	{
@@ -45,6 +45,26 @@ int	just_rotate(t_general *g, char **array, int rotate)
 	{
 		while (rotate++ != 0)
 			rra_ins(g);
+	}
+	return (rotate);
+}
+
+int	just_rotate_b(t_general *g, char **array, int rotate)
+{
+	if (rotate == 1 && maybe_sa(array) == 1)
+	{
+		sb_ins(g);
+		return (0);
+	}
+	else if (rotate > 0)
+	{
+		while (rotate--)
+			rb_ins(g);
+	}
+	else if (rotate < 0)
+	{
+		while (rotate++ != 0)
+			rrb_ins(g);
 	}
 	return (rotate);
 }
@@ -83,7 +103,7 @@ void	super_algorithm(t_general *g)
 	else if (g->len_argc > 250 && g->len_argc < 800)
 		cr = 50;
 	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
-		just_rotate(g, g->array, rotate_master(g->array, 'a'));
+		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
 	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
 		insert_sorts(g);
 	while (i != g->len_argc)
@@ -124,7 +144,6 @@ void	super_algorithm(t_general *g)
 			i += remain;
 		}
 	}
-	// print_array(g->stack_b, "Stack B");
 	back_to_you(g);
 }
 
