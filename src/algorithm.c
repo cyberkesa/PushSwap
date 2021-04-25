@@ -124,6 +124,7 @@ void	super_algorithm(t_general *g)
 			i += remain;
 		}
 	}
+	// print_array(g->stack_b, "Stack B");
 	back_to_you(g);
 }
 

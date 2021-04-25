@@ -28,6 +28,7 @@ void	push_swap(t_general *g)
 		alg_five(g);
 	else if (g->len_argc > 5)
 		super_algorithm(g);
+		// new_alg(g);
 }
 
 int	main(int ac, char **av)
@@ -43,5 +44,6 @@ int	main(int ac, char **av)
 	make_array_values(&g, av);
 	check_doubles_arr(g.array);
 	push_swap(&g);
+	// print_array(g->sort_array, "Sort");
 	return (0);
 }
