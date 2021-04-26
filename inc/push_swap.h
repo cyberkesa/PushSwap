@@ -81,5 +81,7 @@ int	push_a_with_rotate(t_general *g, char **array, int rotate);
 int	push_b_with_rotate(t_general *g, char **array, int rotate);
 void	new_super(t_general *g);
 int	rot_find_min(int *array, int len);
+void	kubik_rubic(t_general *g);
+void	mark_up(t_general *g);
 
 #endif

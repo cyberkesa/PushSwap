@@ -31,7 +31,7 @@ void	kubik_rubic(t_general *g)
 
 	i = 0;
 	a = 1;
-	while (a != g->len_argc + 1)
+	while (a != (g->len_argc) + 1)
 	{
 		current_b = get_pos_elem(g->stack_b, g->sort_array[a]);
 		printf("INDEX:	%d[%s]\n", current_b, g->sort_array[a]);

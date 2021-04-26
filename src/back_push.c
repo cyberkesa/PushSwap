@@ -12,5 +12,7 @@ void	back_to_you(t_general *g)
 		get_pos_elem(g->stack_b, g->sort_array[i]));
 		push_a_with_rotate(g, g->stack_b, rotate);
 	}
+	print_array(g->array, "Stack A");
+	print_array(g->stack_b, "Stack B");
 	complete_sort(g);
 }

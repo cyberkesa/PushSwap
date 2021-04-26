@@ -27,9 +27,10 @@ void	push_swap(t_general *g)
 	else if (g->len_argc > 3 && g->len_argc < 6)
 		alg_five(g);
 	else if (g->len_argc > 5)
-		new_super(g);
-		// new_alg(g);
+		mark_up(g);
 		// super_algorithm(g);
+		// new_alg(g);
+		// new_super(g);
 }
 
 int	main(int ac, char **av)
@@ -39,7 +40,7 @@ int	main(int ac, char **av)
 
 	if (ac < 4)
 		ft_error("Error this number arguments.\n");
-	printf("\x1b[H\x1b[J");
+	// printf("\x1b[H\x1b[J");
 	ft_bzero(&g, sizeof(t_general));
 	parse_number_values(&g, av);
 	make_array_values(&g, av);

@@ -16,7 +16,7 @@ void	new_super(t_general *g)
 		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
 	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
 		insert_sorts(g);
-	while (i != g->len_argc)
+	while (i != g->len_argc / 2)
 	{
 		if (check_sort(g->array) == 0)
 			break ;
@@ -56,5 +56,7 @@ void	new_super(t_general *g)
 	}
 	print_array(g->array, "Stack A");
 	print_array(g->stack_b, "Stack B");
+	kubik_rubic(g);
+	// complete_sort(g);
 	// back_to_you(g);
 }
