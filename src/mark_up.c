@@ -1,145 +1,151 @@
 #include "push_swap.h"
 
-int	len_int(int *b)
-{
-	int	i;
+// int	len_int(int *b)
+// {
+// 	int	i;
 
-	i = 0;
-	while (b != '\0')
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	while (b != '\0')
+// 		i++;
+// 	return (i);
+// }
 
-int	my_lis()
-{
-	int	a[10] = {1, 9, 6, 10, 7, 8, 5, 2, 4, 11};
-	int	n = 11;
-	int	i;
-	int	j;
-	int		prev[n - 1];
-	int		d[n - 1];
+// char	**my_lis(char **array, char *root)
+// {
+// 	size_t	len;
 
-	i = 0;
-	while (i != n - 1)
-	{
-		d[i] = 1;
-		prev[i] = -1;
-		j = 0;
-		while (j != n - 1)
-		{
-			if (a[j] < a[i] && d[j] + 1 > d[i])
-			{
-				d[i] = d[j] + 1;
-				prev[i] = j;
-			}
-			j++;
-		}
-		i++;
-	}
-	// printf("i: %d\n", i);
-	int	pos = 0;
-	printf("d[0]: %d\n", d[0]);
-	int	length = d[0];
-	while (i != n - 1)
-	{
-		if (d[i] > length)
-		{
-			pos = i;
-			length = d[i];
-		}
-		i++;
-	}
+// 	len = 10;
+// 	char	*lis_array[len];
+// 	char	*maybe_lis[len];
 
-	int	answer[n];
-	int		l;
+// 	size_t	i;
 
-	l = 0;
-	while (pos != 0)
-	{
-		answer[l] = a[pos];
-		pos = prev[pos];
-		l++;
-		// reverse(answer);
-	}
-	printf("%d\n", answer[0]);
-	printf("%d\n", answer[1]);
-	printf("%d\n", answer[2]);
-	printf("%d\n", answer[3]);
-	printf("%d\n", answer[4]);
-	printf("%d\n", answer[5]);
-	printf("%d\n", answer[6]);
-	printf("%d\n", answer[7]);
-	printf("%d\n", answer[8]);
-	// printf("%d\n", answer[1]);
-	// printf("%d\n", answer[2]);
-	return (0);
-}
+// 	i = get_pos_elem(array, root); //затем проверять остаток (< root_pos (rotate))
+// 	maybe_lis[0] = root;
+// 	size_t	len_arr = get_len_array(array);
+// 	while (array[i + 1])
+// 	{
+// 		int a = 0;
+// 		if (ft_atoi(array[i + 1]) > ft_atoi(root))
+// 		{
+// 			if (i != len_arr - 2)
+// 			{
+// 				if (!(ft_atoi(array[i + 2]) > ft_atoi(root) && ft_atoi(array[i + 2]) < ft_atoi(array[i + 1])))
+// 				{
+// 					maybe_lis[a] = array[i + 1];
+// 					root = maybe_lis[a];
+// 					printf("maybe_lis[a] %s\n", maybe_lis[a]);
+// 					a++;
+// 				}
+// 			}
+// 			else
+// 			{
+// 				maybe_lis[a] = array[i + 1];
+// 				root = maybe_lis[a];
+// 				printf("maybe_lis[a] %s\n", maybe_lis[a]);
+// 				a++;
+// 			}
+// 		}
+// 		i++;
+// 	}
+// 	return (0);
+// }
 
-char	*mark_ups[200];
+// void	delete_sort_arr(t_general *g)
+// {
+// 	size_t	i;
 
-void	mark(t_general *g, int base_elem)
-{
-	size_t	i;
-	size_t	a;
-	size_t	o;
-	size_t	x;
-	size_t	marks;
-	int		start;
+// 	i = 0;
 
-	i = 0;
-	a = 1;
-	o = 0;
-	x = 0;
-	marks = 0;
+// 	while (g->sort_array[i])
+// 	{
+// 		if (ft_atoi(g->sort_array[i]) == 1 ||
+// 			ft_atoi(g->sort_array[i]) == 2 ||
+// 			ft_atoi(g->sort_array[i]) == 3 ||
+// 			ft_atoi(g->sort_array[i]) == 4 ||
+// 			ft_atoi(g->sort_array[i]) == 5 ||
+// 			ft_atoi(g->sort_array[i]) == 6 ||
+// 			ft_atoi(g->sort_array[i]) == 7 ||
+// 			ft_atoi(g->sort_array[i]) == 8 ||
+// 			ft_atoi(g->sort_array[i]) == 9 ||
+// 			ft_atoi(g->sort_array[i]) == 10 ||
+// 			ft_atoi(g->sort_array[i]) == 20)
+// 				g->sort_array[i] = "9999";
+// 		i++;
+// 	}
+// 	quick_sort_arr(g->sort_array, 0, get_len_array(g->sort_array) - 1);
+// 	print_light_array(g->sort_array);
+// 	i = 0;
+// 	while (i != 10)
+// 	{
+// 		g->new_arr[i] = g->sort_array[i];
+// 		i++;
+// 	}
+// 	print_light_array(g->new_arr);
 
+// }
 
-	mark_ups[0] = g->array[x];
-	// start = g->array[base_elem];
-	// int	in_sort = get_pos_elem(g->sort_array, g->array[base_elem]);
-	while (g->array[i + 1] != NULL)
-	{
-		if (ft_atoi(g->array[base_elem]) < ft_atoi(g->array[base_elem + 1]))
-		{
-			mark_ups[a] = g->array[base_elem + 1];
-			base_elem++;
-			marks++;
-		}
-		i++;
-	}
-	printf("marks:	%zu\n", marks);
-	print_light_array(mark_ups);
+// void	mark_up(t_general *g)
+// {
+// 	char	*LOL[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "20"};
+// 	size_t	i;
+// 	i = 0;
+// 	int	rot[100];
+// 	int	cr;
+// 	int	a;
 
-}
+// 	if (g->len_argc > 5 && g->len_argc < 250)
+// 		cr = 10;
+// 	else if (g->len_argc > 250 && g->len_argc < 800)
+// 		cr = 50;
+// 	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
+// 		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
+// 	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
+// 		insert_sorts(g);
+// 	delete_sort_arr(g);
+// 	while (i != g->len_argc - 10)
+// 	{
+// 		if (check_sort(g->array) == 0)
+// 			break ;
+// 		if (get_len_array(g->array) >= cr)
+// 		{
+// 			while (get_len_array(g->stack_b) != (i + cr))
+// 			{
+// 				a = 0;
+// 				while (a != cr)
+// 				{
+// 					rot[a] = get_min_way(g->array, get_pos_elem(g->array, g->new_arr[i + a]));
+// 					a++;
+// 				}
+// 				push_b_with_rotate(g, g->array, rot[rot_find_min(rot, cr)]);
+// 			}
+// 			i += cr;
+// 		}
+// 		// else
+// 		// {
+// 		// 	int	remain;
+// 		// 	int	remain_2;
 
-void	mark_up(t_general *g)
-{
-	// size_t	i;
-	// int		rot[100];
-	// int		cr;
-	// int		a;
+// 		// 	remain = get_len_array(g->array);
+// 		// 	remain_2 = remain;
+// 		// 	while (remain_2-- != 0)
+// 		// 	{
+// 		// 		a = 0;
+// 		// 		while (a != remain)
+// 		// 		{
+// 		// 			rot[a] = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + a]));
+// 		// 			a++;
+// 		// 		}
+// 		// 		push_b_with_rotate(g, g->array, rot[rot_find_min(rot, a)]);
+// 		// 	}
+// 		// 	i += remain;
+// 		// }
+// 	}
+// 	ra_ins(g);
+// 	ra_ins(g);
+// 	ra_ins(g);
+// 	// kubik_rubic(g);
+// 	print_array(g->array, "Stack A");
+// 	print_array(g->stack_b, "Stack B");
+// }
 
-	// i = 0;
-	my_lis();
-	// mark(g, 0);
-	// if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
-	// 	just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
-	// else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
-	// 	insert_sorts(g);
-	// while (i != g->len_argc) //mark_up on false
-	// {
-	// 	mark(g);
-	// 	maybe_sa(g->array);
-	// 	if (get_pos_elem(g->sort_array, g->array[0]) > g->len_argc / 2)
-	// 	{
-	// 		pb_ins(g);
-	// 	}
-	// 	else
-	// 		ra_ins(g);
-	// 	i++;
-	// }
-	// print_array(g->array, "Stack A");
-	// print_array(g->stack_b, "Stack B");
-	// // kubik_rubic(g);
-	// // back_to_you(g);
-	// complete_sort(g);
-}

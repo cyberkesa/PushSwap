@@ -99,7 +99,7 @@ void	super_algorithm(t_general *g)
 	int	a;
 
 	if (g->len_argc > 5 && g->len_argc < 250)
-		cr = 10;
+		cr = 25;
 	else if (g->len_argc > 250 && g->len_argc < 800)
 		cr = 50;
 	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
@@ -121,8 +121,10 @@ void	super_algorithm(t_general *g)
 					a++;
 				}
 				push_b_with_rotate(g, g->array, rot[rot_find_min(rot, cr)]);
+				printf("%d\n", rot[rot_find_min(rot, a)]);
 			}
 			i += cr;
+			cr -= 3;
 		}
 		else
 		{
@@ -140,6 +142,7 @@ void	super_algorithm(t_general *g)
 					a++;
 				}
 				push_b_with_rotate(g, g->array, rot[rot_find_min(rot, a)]);
+				printf("%d\n", rot[rot_find_min(rot, a)]);
 			}
 			i += remain;
 		}

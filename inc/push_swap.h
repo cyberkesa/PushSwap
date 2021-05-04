@@ -11,8 +11,6 @@ typedef struct s_general
 	size_t		len_argc;
 	size_t		len_arr;
 	size_t		ins_num;
-	char		**lol;
-	char		**array_copy;
 	char		**array;
 	char		**sort_array;
 	char		**stack_b;
@@ -83,5 +81,6 @@ void	new_super(t_general *g);
 int	rot_find_min(int *array, int len);
 void	kubik_rubic(t_general *g);
 void	mark_up(t_general *g);
+void	main_lis(t_general *g);
 
 #endif

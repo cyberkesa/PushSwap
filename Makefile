@@ -35,7 +35,8 @@ SRS =		main.c \
 			back_push.c \
 			super_ins_push_rotate.c \
 			new_super_alg.c \
-			mark_up.c
+			mark_up.c \
+			lis.c
 
 SRCD =		src/
 
