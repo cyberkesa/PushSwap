@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	print_light_array(char **array)
+void	print_light_array(char **array, int target)
 {
 	size_t	len;
 	size_t	ltmp;
@@ -9,6 +9,8 @@ void	print_light_array(char **array)
 	ltmp = get_len_array(array);
 	while (ltmp--)
 	{
+		if (len == target)
+			printf(">> ");
 		printf("%s ", array[len]);
 		len++;
 	}

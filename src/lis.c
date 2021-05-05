@@ -78,5 +78,12 @@ void	main_lis(t_general *g)
 		free(lis);
 		root++;
 	}
-	printf("ROOT: %zu\n", best_root);
+	printf("Best root position:		%zu\n", best_root);
+	printf("Root elem:			%s\n", g->array[best_root]);
+	printf("Arguments len:			%zu\n", g->len_argc);
+	printf("Lis len:			%zu\n", len_lis);
+	printf("Array direction:		");
+	print_light_array(g->array, best_root);
+	printf("Longest Increasing Subsequence:	");
+	print_light_array(super_lis(g->array, g, best_root), -1);
 }

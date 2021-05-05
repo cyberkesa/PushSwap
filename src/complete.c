@@ -25,7 +25,7 @@ void	complete_sort(t_general *g)
 	else
 		printf("\nCортировка:			ERRRROOOOOOR!!!!!!!!!!!!!\n");
 	printf("Совершено операций:		%zu\nКоличество аргументов подано:	%zu\n", g->ins_num, g->len_argc);
-	print_light_array(g->array);
+	print_light_array(g->array, -1);
 	// print_light_array(g->sort_array);
 	// print_array(g->sort_array, "Sort");
 	ft_exit(g);
