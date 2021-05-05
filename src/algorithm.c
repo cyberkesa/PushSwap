@@ -117,7 +117,7 @@ void	super_algorithm(t_general *g)
 				a = 0;
 				while (a != cr)
 				{
-					rot[a] = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + a]));
+					rot[a] = get_min_way(g->array, get_pos_elem(g->array, g->new_sort_unliss[i + a]));
 					a++;
 				}
 				push_b_with_rotate(g, g->array, rot[rot_find_min(rot, cr)]);
@@ -127,25 +127,27 @@ void	super_algorithm(t_general *g)
 			cr -= 3;
 		}
 		else
-		{
-			int	remain;
-			int	remain_2;
+			i++;
+		// else
+		// {
+		// 	int	remain;
+		// 	int	remain_2;
 
-			remain = get_len_array(g->array);
-			remain_2 = remain;
-			while (remain_2-- != 0)
-			{
-				a = 0;
-				while (a != remain)
-				{
-					rot[a] = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + a]));
-					a++;
-				}
-				push_b_with_rotate(g, g->array, rot[rot_find_min(rot, a)]);
-				printf("%d\n", rot[rot_find_min(rot, a)]);
-			}
-			i += remain;
-		}
+		// 	remain = get_len_array(g->array);
+		// 	remain_2 = remain;
+		// 	while (remain_2-- != 0)
+		// 	{
+		// 		a = 0;
+		// 		while (a != remain)
+		// 		{
+		// 			rot[a] = get_min_way(g->array, get_pos_elem(g->array, g->new_sort_unliss[i + a]));
+		// 			a++;
+		// 		}
+		// 		push_b_with_rotate(g, g->array, rot[rot_find_min(rot, a)]);
+		// 		printf("%d\n", rot[rot_find_min(rot, a)]);
+		// 	}
+		// 	i += remain;
+		// }
 	}
 	back_to_you(g);
 }

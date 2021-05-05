@@ -22,7 +22,6 @@ char	**super_lis(char **array, t_general *g, int root)
 	i = root;
 	a = 1;
 
-	//Init first elem LIS's
 	lis[0] = array[root];
 	lis[1] = NULL;
 
@@ -85,5 +84,6 @@ void	main_lis(t_general *g)
 	printf("Array direction:		");
 	print_light_array(g->array, best_root);
 	printf("Longest Increasing Subsequence:	");
-	print_light_array(super_lis(g->array, g, best_root), -1);
+	print_light_array(g->lis = super_lis(g->array, g, best_root), -1);
+	g->len_liss = len_lis;
 }
