@@ -86,5 +86,7 @@ void	kubik_rubic(t_general *g);
 void	mark_up(t_general *g);
 void	main_lis(t_general *g);
 void	next_from_lis(t_general *g);
+int		check_lises(t_general *g, char *elem);
+void	back_in_a(t_general *g);
 
 #endif

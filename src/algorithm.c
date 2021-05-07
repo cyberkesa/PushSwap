@@ -93,61 +93,58 @@ int	rot_find_min(int *array, int len)
 void	super_algorithm(t_general *g)
 {
 	size_t	i;
+	size_t	elem_in_b;
 	i = 0;
-	int	rot[100];
-	int	cr;
 	int	a;
+	int	wait_b;
 
-	if (g->len_argc > 5 && g->len_argc < 250)
-		cr = 25;
-	else if (g->len_argc > 250 && g->len_argc < 800)
-		cr = 50;
+	elem_in_b = 0;
+	wait_b = (g->len_argc - g->len_liss) / 2;
 	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
 		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
 	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
 		insert_sorts(g);
-	while (i != g->len_argc)
-	{
-		if (check_sort(g->array) == 0)
-			break ;
-		if (get_len_array(g->array) >= cr)
-		{
-			while (get_len_array(g->stack_b) != (i + cr))
-			{
-				a = 0;
-				while (a != cr)
-				{
-					rot[a] = get_min_way(g->array, get_pos_elem(g->array, g->new_sort_unliss[i + a]));
-					a++;
-				}
-				push_b_with_rotate(g, g->array, rot[rot_find_min(rot, cr)]);
-				printf("%d\n", rot[rot_find_min(rot, a)]);
-			}
-			i += cr;
-			cr -= 3;
-		}
-		else
-			i++;
-		// else
-		// {
-		// 	int	remain;
-		// 	int	remain_2;
+	int	without_lis;
+	without_lis = (g->len_argc - g->len_liss) / 2;
+	printf("without_lis: %d\n", without_lis);
+	int		next_part;
 
-		// 	remain = get_len_array(g->array);
-		// 	remain_2 = remain;
-		// 	while (remain_2-- != 0)
-		// 	{
-		// 		a = 0;
-		// 		while (a != remain)
-		// 		{
-		// 			rot[a] = get_min_way(g->array, get_pos_elem(g->array, g->new_sort_unliss[i + a]));
-		// 			a++;
-		// 		}
-		// 		push_b_with_rotate(g, g->array, rot[rot_find_min(rot, a)]);
-		// 		printf("%d\n", rot[rot_find_min(rot, a)]);
-		// 	}
-		// 	i += remain;
-		// }
+	next_part = without_lis;
+	while (get_len_array(g->stack_b) != (g->len_argc - g->len_liss))
+	{
+			if (check_lises(g, g->array[0]) == 0)
+			{
+				if (ft_atoi(g->array[0]) > ft_atoi(g->sort_array[(int)((g->len_argc - (get_len_array(g->stack_b) - g->len_liss)) / 2)])
+				&& get_len_array(g->array) != g->len_liss)
+					ra_ins(g);
+				else
+					pb_ins(g);
+				if (ft_atoi(g->stack_b[0]) < ft_atoi(g->sort_array[(int)(g->len_argc / 4) % get_len_array(g->sort_array)]))
+					rb_ins(g);
+			}
+			if (check_lises(g, g->array[0]) == 1 && get_len_array(g->array) != g->len_liss)
+				ra_ins(g);
 	}
-	back_to_you(g);
+	print_array(g->array, "a");
+	print_array(g->stack_b, "b");
+	complete_sort(g);
+	// while (get_len_array(g->array) != g->len_liss)
+	// {
+	// 	if (check_lises(g, g->array[0]) == 0)
+	// 	{
+	// 		pb_ins(g);
+	// 		if (ft_atoi(g->stack_b[0]) > ft_atoi(g->sort_array[elem_in_b]))
+	// 		{
+	// 			rb_ins(g);
+	// 			elem_in_b++;
+	// 		}
+	// 		//more move with stack B
+	// 	}
+	// 	else
+	// 	{
+	// 		elem_in_b++;
+	// 		ra_ins(g);
+	// 	}
+	// }
+	// back_in_a(g);
 }

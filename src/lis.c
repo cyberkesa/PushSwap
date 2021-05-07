@@ -24,31 +24,39 @@ char	**super_lis(char **array, t_general *g, int root)
 
 	lis[0] = array[root];
 	lis[1] = NULL;
-
-	while (array[i] != NULL)
+	printf("\n");
+	while (array[i + 1] != NULL)
 	{
 		if (ft_atoi(array[i]) > find_last_elem(lis))
 		{
-			if (ft_atoi(array[i]) <= ft_atoi(g->sort_array[(i + root) % get_len_array(g->sort_array)]))
+			int	meow = ft_atoi(g->sort_array[(get_pos_elem(g->sort_array, array[i])) % get_len_array(g->sort_array)]);
+			if (ft_atoi(array[i]) <= meow)
 			{
+				printf("main:		[%d] <= %d\n", ft_atoi(array[i]), meow);
 				lis[a] = array[i];
 				lis[a + 1] = NULL;
 				a++;
 			}
+			else
+				printf("non main:	-%d- > %d\n", ft_atoi(array[i]), meow);
 		}
 		i++;
 	}
 	i = 0;
-	while (i != root)
+	while (i != root + 1)
 	{
 		if (ft_atoi(array[i]) > find_last_elem(lis))
 		{
-			if (ft_atoi(array[i]) <= ft_atoi(g->sort_array[(i + root) % get_len_array(g->sort_array)]))
+			int	curent = ft_atoi(g->sort_array[(get_pos_elem(g->sort_array, array[i])) % get_len_array(g->sort_array)]);
+			if (ft_atoi(array[i]) <= curent)
 			{
+				printf("remain:		[%d] <= %d\n", ft_atoi(array[i]), curent);
 				lis[a] = array[i];
 				lis[a + 1] = NULL;
 				a++;
 			}
+			else
+				printf("non remain:	-%d- > %d\n", ft_atoi(array[i]), curent);
 		}
 		i++;
 	}

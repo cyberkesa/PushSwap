@@ -1,5 +1,15 @@
 #include "push_swap.h"
 
+void	back_in_a(t_general *g)
+{
+	print_array(g->array, "Stack A");
+	print_array(g->stack_b, "Stack B");
+	complete_sort(g);
+
+}
+
+
+
 void	back_to_you(t_general *g)
 {
 	register size_t	i;
@@ -12,7 +22,7 @@ void	back_to_you(t_general *g)
 		get_pos_elem(g->stack_b, g->sort_array[i]));
 		push_a_with_rotate(g, g->stack_b, rotate);
 	}
-	// print_array(g->array, "Stack A");
-	// print_array(g->stack_b, "Stack B");
+	print_array(g->array, "Stack A");
+	print_array(g->stack_b, "Stack B");
 	complete_sort(g);
 }
