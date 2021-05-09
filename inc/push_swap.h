@@ -16,6 +16,10 @@ typedef struct s_general
 	char		**lis;
 	char		**new_sort_unliss;
 	char		**sort_array;
+
+
+
+	
 	char		**stack_b;
 	char		*middle;
 	int			flag;

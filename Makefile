@@ -49,19 +49,21 @@ CFLAGS =	-O2 -fsanitize=address -g
 
 CC =		gcc
 
-all: $(NAME)
+all: lib $(NAME)
 
 $(NAME):: $(LIBFT) $(OBJD)
-$(NAME):: $(OBJECTS)
-	@$(CC) $(CFLAGS) -o $@ $(INCLUDES) $^ $(LIBFT)
-	@printf "\x1b[7m Create: "
+$(NAME):: $(OBJECTS) $(LIBFT)
+	@$(CC) $(CFLAGS) -o $@ $(INCLUDES) $^
+	@printf "\x1b[7mCreate: "
 	@printf $@
 	@printf "\x1b[7m\n"
 
-$(LIBFT):
+$(LIBFT): lib
+
+lib:
 	@make -C ./Libft
 
-$(OBJD)%.o: $(SRCD)%.c
+$(OBJD)%.o: $(SRCD)%.c	inc/push_swap.h Makefile
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@printf "\x1b[2m\x1b[m Compile object: "
 	@printf $(notdir $@)

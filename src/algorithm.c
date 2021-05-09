@@ -90,6 +90,31 @@ int	rot_find_min(int *array, int len)
 	return (pos);
 }
 
+char	check(int nbr, t_general *g)
+{
+	int	i;
+
+	i = -1;
+	while (++i ^ g->len_liss)
+		if (ft_atoi(g->lis[i]) == nbr)
+			return (0);
+	return (1);
+}
+
+int	get_middle(int count, t_general *g)
+{
+	int	i;
+
+	i = 0;
+	while (count && count ^ g->len_liss)
+	{
+		if (check(ft_atoi(g->sort_array[i]), g))
+			count--;
+		i++;
+	}
+	return (i);
+}
+
 void	super_algorithm(t_general *g)
 {
 	size_t	i;
@@ -107,44 +132,23 @@ void	super_algorithm(t_general *g)
 	int	without_lis;
 	without_lis = (g->len_argc - g->len_liss) / 2;
 	printf("without_lis: %d\n", without_lis);
-	int		next_part;
-
-	next_part = without_lis;
-	while (get_len_array(g->stack_b) != (g->len_argc - g->len_liss))
+	int	j = get_middle(wait_b, g);
+	while (get_len_array(g->stack_b) != (int)((g->len_argc) - g->len_liss) / 2)
 	{
-			if (check_lises(g, g->array[0]) == 0)
-			{
-				if (ft_atoi(g->array[0]) > ft_atoi(g->sort_array[(int)((g->len_argc - (get_len_array(g->stack_b) - g->len_liss)) / 2)])
-				&& get_len_array(g->array) != g->len_liss)
-					ra_ins(g);
-				else
-					pb_ins(g);
-				if (ft_atoi(g->stack_b[0]) < ft_atoi(g->sort_array[(int)(g->len_argc / 4) % get_len_array(g->sort_array)]))
-					rb_ins(g);
-			}
-			if (check_lises(g, g->array[0]) == 1 && get_len_array(g->array) != g->len_liss)
-				ra_ins(g);
+		if (ft_atoi(g->sort_array[get_middle(j, g)]) < ft_atoi(g->array[0]) || !check(ft_atoi(g->array[0]), g))
+			ra_ins(g);
+		else
+			pb_ins(g);
+		printf("%i\n", ft_atoi(g->sort_array[get_middle(j / 2, g)]));
+		if (get_len_array(g->stack_b) && ft_atoi(g->stack_b[0]) <= ft_atoi(g->sort_array[get_middle(j / 2, g)]))
+			rb_ins(g);
 	}
-	print_array(g->array, "a");
-	print_array(g->stack_b, "b");
+	while (get_len_array(g->array) ^ g->len_liss)
+		if (check(ft_atoi(g->array[0]), g))
+			pb_ins(g);
+		else
+			ra_ins(g);
+	print_array(g->array, "A");
+	print_array(g->stack_b, "B");
 	complete_sort(g);
-	// while (get_len_array(g->array) != g->len_liss)
-	// {
-	// 	if (check_lises(g, g->array[0]) == 0)
-	// 	{
-	// 		pb_ins(g);
-	// 		if (ft_atoi(g->stack_b[0]) > ft_atoi(g->sort_array[elem_in_b]))
-	// 		{
-	// 			rb_ins(g);
-	// 			elem_in_b++;
-	// 		}
-	// 		//more move with stack B
-	// 	}
-	// 	else
-	// 	{
-	// 		elem_in_b++;
-	// 		ra_ins(g);
-	// 	}
-	// }
-	// back_in_a(g);
 }
