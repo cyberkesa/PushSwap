@@ -31,13 +31,11 @@ SRS =		main.c \
 			complete.c \
 			algorithm_before.c \
 			utils_alg.c \
-			alg.c \
 			back_push.c \
 			super_ins_push_rotate.c \
-			new_super_alg.c \
-			mark_up.c \
 			lis.c \
 			lis_stack_a.c \
+			my_best.c
 
 SRCD =		src/
 

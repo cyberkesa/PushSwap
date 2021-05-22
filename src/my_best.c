@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	new_super(t_general *g)
+void	my_best(t_general *g)
 {
 	size_t	i;
 	i = 0;
@@ -9,14 +9,14 @@ void	new_super(t_general *g)
 	int	a;
 
 	if (g->len_argc > 5 && g->len_argc < 250)
-		cr = 10;
+		cr = 25;
 	else if (g->len_argc > 250 && g->len_argc < 800)
 		cr = 50;
 	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
 		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
 	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
 		insert_sorts(g);
-	while (i != g->len_argc / 2)
+	while (i != g->len_argc)
 	{
 		if (check_sort(g->array) == 0)
 			break ;
@@ -31,32 +31,31 @@ void	new_super(t_general *g)
 					a++;
 				}
 				push_b_with_rotate(g, g->array, rot[rot_find_min(rot, cr)]);
+				printf("%d\n", rot[rot_find_min(rot, a)]);
 			}
 			i += cr;
+			cr -= 3;
 		}
-		// else
-		// {
-		// 	int	remain;
-		// 	int	remain_2;
+		else
+		{
+			int	remain;
+			int	remain_2;
 
-		// 	remain = get_len_array(g->array);
-		// 	remain_2 = remain;
-		// 	while (remain_2-- != 0)
-		// 	{
-		// 		a = 0;
-		// 		while (a != remain)
-		// 		{
-		// 			rot[a] = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + a]));
-		// 			a++;
-		// 		}
-		// 		push_b_with_rotate(g, g->array, rot[rot_find_min(rot, a)]);
-		// 	}
-		// 	i += remain;
-		// }
+			remain = get_len_array(g->array);
+			remain_2 = remain;
+			while (remain_2-- != 0)
+			{
+				a = 0;
+				while (a != remain)
+				{
+					rot[a] = get_min_way(g->array, get_pos_elem(g->array, g->sort_array[i + a]));
+					a++;
+				}
+				push_b_with_rotate(g, g->array, rot[rot_find_min(rot, a)]);
+				printf("%d\n", rot[rot_find_min(rot, a)]);
+			}
+			i += remain;
+		}
 	}
-	print_array(g->array, "Stack A");
-	print_array(g->stack_b, "Stack B");
-	kubik_rubic(g);
-	// complete_sort(g);
-	// back_to_you(g);
+	back_to_you(g);
 }

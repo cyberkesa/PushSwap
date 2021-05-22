@@ -32,9 +32,6 @@ void	push_swap(t_general *g)
 		next_from_lis(g);
 		super_algorithm(g);
 	}
-		// mark_up(g);
-		// new_alg(g);
-		// new_super(g);
 }
 
 int	main(int ac, char **av)

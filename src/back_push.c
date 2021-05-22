@@ -8,8 +8,6 @@ void	back_in_a(t_general *g)
 
 }
 
-
-
 void	back_to_you(t_general *g)
 {
 	register size_t	i;
