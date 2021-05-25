@@ -41,5 +41,4 @@ void	alg_five(t_general *g)
 	}
 	while (get_len_array(g->stack_b) != 0)
 		pa_ins(g);
-	complete_sort(g);
 }
