@@ -115,6 +115,14 @@ int	get_middle(int count, t_general *g)
 	return (i);
 }
 
+int		is_in_array(char **array, char *s)
+{
+	while (*array)
+		if (!ft_strcmp(*array++, s))
+			return (1);
+	return (0);
+}
+
 void	super_algorithm(t_general *g)
 {
 	size_t	i;
@@ -133,9 +141,10 @@ void	super_algorithm(t_general *g)
 	without_lis = (g->len_argc - g->len_liss) / 2;
 	printf("without_lis: %d\n", without_lis);
 	int	j = get_middle(wait_b, g);
-	while (get_len_array(g->stack_b) != (int)((g->len_argc) - g->len_liss) / 2)
+	while (get_len_array(g->stack_b) < (int)((g->len_argc) - g->len_liss) / 2  )
 	{
-		if (ft_atoi(g->sort_array[get_middle(j, g)]) < ft_atoi(g->array[0]) || !check(ft_atoi(g->array[0]), g))
+		printf("%s %s\n", g->sort_array[get_middle(j, g)], g->array[0]);
+		if (is_in_array(g->array, g->sort_array[get_middle(j, g)]) && (ft_atoi(g->sort_array[get_middle(j, g)]) < ft_atoi(g->array[0]) || !check(ft_atoi(g->array[0]), g)))
 			ra_ins(g);
 		else
 			pb_ins(g);
@@ -143,11 +152,13 @@ void	super_algorithm(t_general *g)
 		if (get_len_array(g->stack_b) && ft_atoi(g->stack_b[0]) <= ft_atoi(g->sort_array[get_middle(j / 2, g)]))
 			rb_ins(g);
 	}
-	while (get_len_array(g->array) ^ g->len_liss)
+	while (get_len_array(g->array) >= g->len_liss)
 		if (check(ft_atoi(g->array[0]), g))
 			pb_ins(g);
 		else
 			ra_ins(g);
+	while (get_len_array(g->stack_b))
+		while ()
 	print_array(g->array, "A");
 	print_array(g->stack_b, "B");
 	complete_sort(g);

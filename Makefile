@@ -50,8 +50,9 @@ CC =		gcc
 all: lib $(NAME)
 
 $(NAME):: $(LIBFT) $(OBJD)
-$(NAME):: $(OBJECTS) $(LIBFT)
+$(NAME):: $(OBJECTS) $(LIBFT) #CHECKER
 	@$(CC) $(CFLAGS) -o $@ $(INCLUDES) $^
+#CHECKER
 	@printf "\x1b[7mCreate: "
 	@printf $@
 	@printf "\x1b[7m\n"
