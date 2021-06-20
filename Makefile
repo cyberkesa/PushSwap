@@ -36,7 +36,8 @@ SRS =		main.c \
 			lis.c \
 			lis_stack_a.c \
 			my_best.c \
-			stack_b_back.c
+			stack_b_back.c \
+			stack_a_push.c
 
 SRCD =		src/
 

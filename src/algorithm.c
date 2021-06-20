@@ -118,6 +118,14 @@ int		is_in_array(char **array, char *s)
 	return (0);
 }
 
+void	takoe(t_general *g)
+{
+	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
+		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
+	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
+		insert_sorts(g);
+}
+
 void	super_algorithm(t_general *g)
 {
 	size_t	i;
@@ -125,25 +133,18 @@ void	super_algorithm(t_general *g)
 	i = 0;
 	int	a;
 	int	wait_b;
-
+	takoe(g);
 	elem_in_b = 0;
 	wait_b = (g->len_argc - g->len_liss) / 2;
-	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
-		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
-	else if (check_polusort_stack_a(g->array) == 1 && check_polusort_stack_a(g->stack_b) == 1)
-		insert_sorts(g);
 	int	without_lis;
 	without_lis = (g->len_argc - g->len_liss) / 2;
-	printf("without_lis: %d\n", without_lis);
 	int	j = get_middle(wait_b, g);
 	while (get_len_array(g->stack_b) < (int)((g->len_argc) - g->len_liss) / 2  )
 	{
-		printf("%s %s\n", g->sort_array[get_middle(j, g)], g->array[0]);
 		if (is_in_array(g->array, g->sort_array[get_middle(j, g)]) && (ft_atoi(g->sort_array[get_middle(j, g)]) < ft_atoi(g->array[0]) || !check(ft_atoi(g->array[0]), g)))
 			ra_ins(g);
 		else
 			pb_ins(g);
-		printf("%i\n", ft_atoi(g->sort_array[get_middle(j / 2, g)]));
 		if (get_len_array(g->stack_b) && ft_atoi(g->stack_b[0]) <= ft_atoi(g->sort_array[get_middle(j / 2, g)]))
 			rb_ins(g);
 	}

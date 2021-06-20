@@ -32,7 +32,10 @@ void	push_swap(t_general *g)
 		// next_from_lis(g);
 		// super_algorithm(g);
 
-		my_best(g);
+		// my_best(g);
+		// all_night(g);
+
+		push_a(g);
 		all_night(g);
 	}
 }

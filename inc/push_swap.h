@@ -38,7 +38,7 @@ typedef struct s_general
 
 }				t_general;
 
-
+void	push_a(t_general *g);
 void	my_best(t_general *g);
 void		all_night(t_general *g);
 int				main(int ac, char **av);
