@@ -31,12 +31,7 @@ int	check_sb(t_general *g, char **array)
 
 int	just_rotate_a(t_general *g, char **array, int rotate)
 {
-	if (rotate == 1 && maybe_sa(array) == 1)
-	{
-		sa_ins(g);
-		return (0);
-	}
-	else if (rotate > 0)
+	if (rotate > 0)
 	{
 		while (rotate--)
 			ra_ins(g);
@@ -152,14 +147,20 @@ void	super_algorithm(t_general *g)
 		if (get_len_array(g->stack_b) && ft_atoi(g->stack_b[0]) <= ft_atoi(g->sort_array[get_middle(j / 2, g)]))
 			rb_ins(g);
 	}
-	while (get_len_array(g->array) >= g->len_liss)
+	while (get_len_array(g->array) > g->len_liss)
 		if (check(ft_atoi(g->array[0]), g))
 			pb_ins(g);
 		else
 			ra_ins(g);
-	while (get_len_array(g->stack_b))
-		while ()
-	print_array(g->array, "A");
-	print_array(g->stack_b, "B");
+
+	all_night(g);		
+}
+
+void	all_night(t_general *g)
+{
+	while (get_len_array(g->stack_b) ^ 0)
+		back_push(g);
+	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
+		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
 	complete_sort(g);
 }

@@ -28,9 +28,12 @@ void	push_swap(t_general *g)
 		alg_five(g);
 	else if (g->len_argc > 5)
 	{
-		main_lis(g);
-		next_from_lis(g);
-		super_algorithm(g);
+		// main_lis(g);
+		// next_from_lis(g);
+		// super_algorithm(g);
+
+		my_best(g);
+		all_night(g);
 	}
 }
 

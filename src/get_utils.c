@@ -7,7 +7,7 @@ int		get_pos_elem(char **array, char *elem)
 	pos = 0;
 	while (array[pos] != NULL)
 	{
-		if (array[pos] == elem)
+		if (ft_atoi(array[pos]) == ft_atoi(elem))
 			return (pos);
 		pos++;
 	}

@@ -57,5 +57,9 @@ void	my_best(t_general *g)
 			i += remain;
 		}
 	}
-	back_to_you(g);
+	pa_ins(g);
+	pa_ins(g);
+	print_array(g->array, "a");
+	print_array(g->stack_b, "b");
+	// back_to_you(g);
 }

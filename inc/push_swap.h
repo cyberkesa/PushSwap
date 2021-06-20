@@ -6,8 +6,24 @@
 # include <unistd.h>
 # include "libft.h"
 
+typedef	struct	s_num_ins
+{
+	char		*number;
+	int			stack_a_rotate;	//waiting
+	int			stack_b_rotate;	//waiting
+	int			ra;
+	int			rb;
+	int			rra;
+	int			rrb;
+	int			rr;
+	int			rrr;
+	int			count;
+}				t_num_ins;
+
+
 typedef struct s_general
 {
+	t_num_ins	*num_ins;
 	size_t		len_argc;
 	size_t		len_arr;
 	size_t		len_liss;
@@ -16,16 +32,15 @@ typedef struct s_general
 	char		**lis;
 	char		**new_sort_unliss;
 	char		**sort_array;
-
-
-
-	
 	char		**stack_b;
 	char		*middle;
 	int			flag;
 
 }				t_general;
 
+
+void	my_best(t_general *g);
+void		all_night(t_general *g);
 int				main(int ac, char **av);
 void			ft_exit(t_general *g);
 void			free_array(char **r);
@@ -92,5 +107,6 @@ void	main_lis(t_general *g);
 void	next_from_lis(t_general *g);
 int		check_lises(t_general *g, char *elem);
 void	back_in_a(t_general *g);
+void	back_push(t_general *g);
 
 #endif
