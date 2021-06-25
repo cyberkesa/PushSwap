@@ -207,14 +207,6 @@ void	init_struct(t_general *g)
 	}
 }
 
-void	make_counts_struct(t_general *g)
-{
-	g->num_ins = NULL;
-	g->num_ins = (t_num_ins *)malloc(sizeof(t_num_ins)
-	* (get_len_array(g->stack_b) + 1));
-	init_struct(g);
-}
-
 int	get_number(t_general *g)
 {
 	int	len;
@@ -245,10 +237,14 @@ void	back_push(t_general *g)
 {
 	int	best_id;
 
+	g->num_ins = NULL;
+	g->num_ins = (t_num_ins *)malloc(sizeof(t_num_ins)
+	* (get_len_array(g->stack_b) + 1));
 	while (get_len_array(g->stack_b) ^ 0)
 	{
-		make_counts_struct(g);
+		init_struct(g);
 		best_id = get_number(g);
 		pushing_number(g, best_id);
 	}
+	free(g->num_ins);
 }

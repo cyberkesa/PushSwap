@@ -126,42 +126,10 @@ void	takoe(t_general *g)
 		insert_sorts(g);
 }
 
-void	super_algorithm(t_general *g)
-{
-	size_t	i;
-	size_t	elem_in_b;
-	i = 0;
-	int	a;
-	int	wait_b;
-	takoe(g);
-	elem_in_b = 0;
-	wait_b = (g->len_argc - g->len_liss) / 2;
-	int	without_lis;
-	without_lis = (g->len_argc - g->len_liss) / 2;
-	int	j = get_middle(wait_b, g);
-	while (get_len_array(g->stack_b) < (int)((g->len_argc) - g->len_liss) / 2  )
-	{
-		if (is_in_array(g->array, g->sort_array[get_middle(j, g)]) && (ft_atoi(g->sort_array[get_middle(j, g)]) < ft_atoi(g->array[0]) || !check(ft_atoi(g->array[0]), g)))
-			ra_ins(g);
-		else
-			pb_ins(g);
-		if (get_len_array(g->stack_b) && ft_atoi(g->stack_b[0]) <= ft_atoi(g->sort_array[get_middle(j / 2, g)]))
-			rb_ins(g);
-	}
-	while (get_len_array(g->array) > g->len_liss)
-		if (check(ft_atoi(g->array[0]), g))
-			pb_ins(g);
-		else
-			ra_ins(g);
-
-	all_night(g);		
-}
-
 void	all_night(t_general *g)
 {
 	while (get_len_array(g->stack_b) ^ 0)
 		back_push(g);
 	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
 		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
-	complete_sort(g);
 }

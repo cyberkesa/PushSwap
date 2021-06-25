@@ -35,7 +35,6 @@ SRS =		main.c \
 			super_ins_push_rotate.c \
 			lis.c \
 			lis_stack_a.c \
-			my_best.c \
 			stack_b_back.c \
 			stack_a_push.c
 
@@ -45,7 +44,7 @@ OBJECTS =	$(addprefix $(OBJD), $(patsubst %.c, %.o, $(SRS)))
 
 INCLUDES =	-I inc/ -I Libft/
 
-CFLAGS =	-O2 -fsanitize=address -g
+CFLAGS =	-O2 -g
 
 CC =		gcc
 
