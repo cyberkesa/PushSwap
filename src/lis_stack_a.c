@@ -27,7 +27,6 @@ char	**re_sort_array(t_general *g)
 	{
 		if (check_lises(g, g->sort_array[i]) == 1)
 		{
-			printf("%p = %s\n", new_sort[a], g->sort_array[i]);
 			new_sort[a] = g->sort_array[i];
 			a++;
 		}
@@ -40,5 +39,4 @@ char	**re_sort_array(t_general *g)
 void	next_from_lis(t_general *g)
 {
 	g->new_sort_unliss = re_sort_array(g);
-	print_array(g->new_sort_unliss, "LIS");
 }

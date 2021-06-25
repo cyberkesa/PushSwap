@@ -26,7 +26,5 @@ void	complete_sort(t_general *g)
 		printf("\033[31m\nCортировка:			ERRRROOOOOOR!!!!!!!!!!!!!\n\033[1m\033[31m");
 	printf("Совершено операций:		%zu\nКоличество аргументов подано:	%zu\n", g->ins_num, g->len_argc);
 	print_light_array(g->array, -1);
-	// print_light_array(g->sort_array);
-	// print_array(g->sort_array, "Sort");
 	ft_exit(g);
 }

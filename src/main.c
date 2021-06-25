@@ -47,12 +47,10 @@ int	main(int ac, char **av)
 
 	if (ac < 4)
 		ft_error("Error this number arguments.\n");
-	// printf("\x1b[H\x1b[J");
 	ft_bzero(&g, sizeof(t_general));
 	parse_number_values(&g, av);
 	make_array_values(&g, av);
 	check_doubles_arr(g.array);
 	push_swap(&g);
-	// print_array(g->sort_array, "Sort");
 	return (0);
 }

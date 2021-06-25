@@ -31,7 +31,6 @@ void	my_best(t_general *g)
 					a++;
 				}
 				push_b_with_rotate(g, g->array, rot[rot_find_min(rot, cr)]);
-				printf("%d\n", rot[rot_find_min(rot, a)]);
 			}
 			i += cr;
 			cr -= 3;
@@ -52,14 +51,11 @@ void	my_best(t_general *g)
 					a++;
 				}
 				push_b_with_rotate(g, g->array, rot[rot_find_min(rot, a)]);
-				printf("%d\n", rot[rot_find_min(rot, a)]);
 			}
 			i += remain;
 		}
 	}
 	pa_ins(g);
 	pa_ins(g);
-	print_array(g->array, "a");
-	print_array(g->stack_b, "b");
 	// back_to_you(g);
 }
