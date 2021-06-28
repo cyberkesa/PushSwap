@@ -9,8 +9,8 @@
 typedef struct s_num_ins
 {
 	char		*number;
-	int			stack_a_rotate;	//waiting
-	int			stack_b_rotate;	//waiting
+	int			stack_a_rotate;
+	int			stack_b_rotate;
 	int			ra;
 	int			rb;
 	int			rra;
@@ -60,7 +60,7 @@ char	*get_middle_values(char **array_for_find, size_t lens);
 int		get_min_way(char **array, size_t pos_elem);
 void	alg_three(t_general *g);
 void	alg_five(t_general *g);
-int	insert_sorts(t_general *g);
+int		insert_sorts(t_general *g);
 void	ra_ins(t_general *general);
 void	rra_ins(t_general *general);
 void	rb_ins(t_general *general);
