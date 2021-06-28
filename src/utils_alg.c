@@ -9,8 +9,6 @@ int	get_min_way(char **array, size_t pos_elem)
 	len = get_len_array(array);
 	if (len == 1)
 		return (0);
-	if (pos_elem == 0)
-		return (0);
 	if ((len / 2) < pos_elem)
 		return ((len - pos_elem) * -1);
 	else if ((len / 2) >= pos_elem)

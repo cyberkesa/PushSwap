@@ -17,7 +17,6 @@ LIBFT =		Libft/libft.a
 OBJD =		objects/
 
 SRS =		main.c \
-			errors.c \
 			make_array.c \
 			quick_sort.c \
 			prints.c \
@@ -32,7 +31,6 @@ SRS =		main.c \
 			complete.c \
 			algorithm_before.c \
 			utils_alg.c \
-			back_push.c \
 			super_ins_push_rotate.c \
 			lis.c \
 			lis_stack_a.c \
@@ -45,7 +43,7 @@ OBJECTS =	$(addprefix $(OBJD), $(patsubst %.c, %.o, $(SRS)))
 
 INCLUDES =	-I inc/ -I Libft/
 
-CFLAGS =	-O2 -g -fsanitize=address
+CFLAGS =	-O2 -fsanitize=address -g
 
 CC =		gcc
 

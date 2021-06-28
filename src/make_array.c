@@ -29,4 +29,3 @@ void	make_array_values(t_general *general, char **av)
 	general->array[len] = NULL;
 	general->stack_b[0] = NULL;
 }
-

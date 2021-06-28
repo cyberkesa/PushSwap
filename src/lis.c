@@ -15,20 +15,22 @@ int		find_last_elem(char **array)
 char	**super_lis(char **array, t_general *g, int root)
 {
 	char	**lis;
-
-	lis = (char **)malloc(sizeof(char *) * get_len_array(array));
 	size_t	i;
 	size_t	a;
+	int	meow;
+	int	curent;
+
 	i = root;
 	a = 1;
-
+	lis = (char **)malloc(sizeof(char *) * get_len_array(array));
 	lis[0] = array[root];
 	lis[1] = NULL;
 	while (array[i + 1] != NULL)
 	{
 		if (ft_atoi(array[i]) > find_last_elem(lis))
 		{
-			int	meow = ft_atoi(g->sort_array[(get_pos_elem(g->sort_array, array[i])) % get_len_array(g->sort_array)]);
+			meow = ft_atoi(g->sort_array[(get_pos_elem(g->sort_array,
+			array[i])) % get_len_array(g->sort_array)]);
 			if (ft_atoi(array[i]) <= meow)
 			{
 				lis[a] = array[i];
@@ -43,7 +45,8 @@ char	**super_lis(char **array, t_general *g, int root)
 	{
 		if (ft_atoi(array[i]) > find_last_elem(lis))
 		{
-			int	curent = ft_atoi(g->sort_array[(get_pos_elem(g->sort_array, array[i])) % get_len_array(g->sort_array)]);
+			curent = ft_atoi(g->sort_array[(get_pos_elem(g->sort_array,
+			array[i])) % get_len_array(g->sort_array)]);
 			if (ft_atoi(array[i]) <= curent)
 			{
 				lis[a] = array[i];

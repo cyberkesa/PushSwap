@@ -1,5 +1,19 @@
 #include "push_swap.h"
 
+void	ft_error(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (str)
+	{
+		while (str[i])
+			i++;
+		write(1, str, i);
+	}
+	exit (0);
+}
+
 void	push_swap(t_general *g)
 {
 	if (check_sort(g->array) == 0)
@@ -17,7 +31,6 @@ void	push_swap(t_general *g)
 		push_a(g);
 		all_night(g);
 	}
-	complete_sort(g);
 }
 
 int	main(int ac, char **av)
@@ -25,8 +38,12 @@ int	main(int ac, char **av)
 	t_general	g;
 	t_list	*lst;
 
+	if (ac < 2)
+		ft_error("Error this number arguments.\n");
 	ft_bzero(&g, sizeof(t_general));
-	errors_detected(&g, ac, av);
+	parse_number_values(&g, av);
+	make_array_values(&g, av);
+	check_doubles_arr(g.array);
 	push_swap(&g);
 	return (0);
 }

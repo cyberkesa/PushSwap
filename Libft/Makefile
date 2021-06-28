@@ -37,12 +37,9 @@ SOURCES_LIST =		ft_memset.c \
 					ft_strcmp.c \
 					ft_atoi.c \
 					ft_unsigned_atoi.c \
-					ft_issign_char.c \
 					ft_isalpha.c \
-					ft_isalpha_char.c \
 					ft_isspace.c \
 					ft_isdigit.c \
-					ft_isdigit_char.c \
 					ft_isalnum.c \
 					ft_isascii.c \
 					ft_isupper.c \

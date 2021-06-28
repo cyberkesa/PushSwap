@@ -33,7 +33,6 @@ char	**re_sort_array(t_general *g)
 		i++;
 	}
 	new_sort[a] = NULL;
-	// free(new_sort);
 	return (new_sort);
 }
 

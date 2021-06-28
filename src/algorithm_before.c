@@ -7,9 +7,15 @@ void	alg_three(t_general *g)
 	if (check_sort(g->array) == 0)
 		complete_sort(g);
 	if (g->array[0] == g->middle)
+	{
 		rra_ins(g);
+		printf("rra\n");
+	}
 	else
+	{
 		ra_ins(g);
+		printf("ra\n");
+	}
 }
 
 void	alg_five(t_general *g)

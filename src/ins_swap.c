@@ -9,7 +9,6 @@ void	sa_ins(t_general *general)
 	tmp = general->array[0];
 	general->array[0] = general->array[1];
 	general->array[1] = tmp;
-	general->ins_num += 1;
 	printf("sa\n");
 }
 
@@ -22,7 +21,5 @@ void	sb_ins(t_general *general)
 	tmp = general->stack_b[0];
 	general->stack_b[0] = general->stack_b[1];
 	general->stack_b[1] = tmp;
-	general->ins_num += 1;
 	printf("sb\n");
 }
-

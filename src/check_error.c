@@ -43,7 +43,7 @@ void	check_doubles_arr(char **array)
 				next++;
 			if (array[next] == NULL)
 				return;
-			if (strcmp(array[next], array[current]) == 0)
+			if (ft_strcmp(array[next], array[current]) == 0)
 				ft_error("Error, doubles element!\n");
 			next++;
 		}

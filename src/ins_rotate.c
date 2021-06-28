@@ -18,8 +18,6 @@ void	ra_ins(t_general *g)
 		a++;
 	}
 	g->array[i - 1] = tmp;
-	g->ins_num += 1;
-	printf("ra\n");
 }
 
 void	rb_ins(t_general *g)
@@ -40,8 +38,6 @@ void	rb_ins(t_general *g)
 		b++;
 	}
 	g->stack_b[i - 1] = tmp;
-	g->ins_num += 1;
-	printf("rb\n");
 }
 
 void	rra_ins(t_general *g)
@@ -54,8 +50,6 @@ void	rra_ins(t_general *g)
 	while (--len)
 		g->array[len] = g->array[len - 1];
 	g->array[0] = tmp;
-	g->ins_num += 1;
-	printf("rra\n");
 }
 
 void	rrb_ins(t_general *g)
@@ -68,6 +62,4 @@ void	rrb_ins(t_general *g)
 	while (--len)
 		g->stack_b[len] = g->stack_b[len - 1];
 	g->stack_b[0] = tmp;
-	g->ins_num += 1;
-	printf("rrb\n");
 }

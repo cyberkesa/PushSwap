@@ -35,43 +35,46 @@ int	find_min_in_a(t_general *g)
 void	pushing_number(t_general *g, int number_id)
 {
 	if (g->num_ins[number_id].ra > 0)
-	{
 		while (g->num_ins[number_id].ra--)
+		{
 			ra_ins(g);
-	}
+			printf("ra\n");
+		}
 	if (g->num_ins[number_id].rra > 0)
-	{
 		while (g->num_ins[number_id].rra--)
+		{
 			rra_ins(g);
-	}
+			printf("rra\n");
+		}
 	if (g->num_ins[number_id].rb > 0)
-	{
 		while (g->num_ins[number_id].rb--)
+		{
 			rb_ins(g);
-	}
+			printf("rb\n");
+		}
 	if (g->num_ins[number_id].rrb > 0)
-	{
 		while (g->num_ins[number_id].rrb--)
+		{
 			rrb_ins(g);
-
-	}
+			printf("rrb\n");
+		}
 	if (g->num_ins[number_id].rr > 0)
-	{
 		while (g->num_ins[number_id].rr--)
+		{
 			rr_ins(g);
-	}
+			printf("rr\n");
+		}
 	if (g->num_ins[number_id].rrr > 0)
-	{
 		while (g->num_ins[number_id].rrr--)
+		{
 			rrr_ins(g);
-	}
+			printf("rrr\n");
+		}
 	pa_ins(g);
 }
 
 void	processing_ins(t_general *g, int i)
 {
-	printf("g->num_ins[i].stack_a_rotate %d\n", g->num_ins[i].stack_a_rotate);
-	printf("g->num_ins[i].stack_b_rotate %d\n", g->num_ins[i].stack_b_rotate);
 	if (g->num_ins[i].ra < 0)
 		g->num_ins[i].ra = 0;
 	if (g->num_ins[i].rb < 0)
@@ -136,15 +139,6 @@ void	processing_ins(t_general *g, int i)
 	}
 	g->num_ins[i].count = g->num_ins[i].rrr + g->num_ins[i].rra + g->num_ins[i].rrb +
 	g->num_ins[i].rr + g->num_ins[i].ra + g->num_ins[i].rb;
-
-	printf("NUMBER %s\n", g->num_ins[i].number);
-	printf("g->num_ins[i].ra %d\n", g->num_ins[i].ra);
-	printf("g->num_ins[i].rb %d\n", g->num_ins[i].rb);
-	printf("g->num_ins[i].rr %d\n", g->num_ins[i].rr);
-	printf("g->num_ins[i].rra %d\n", g->num_ins[i].rra);
-	printf("g->num_ins[i].rrb %d\n", g->num_ins[i].rrb);
-	printf("g->num_ins[i].rrr %d\n", g->num_ins[i].rrr);
-	printf("g->num_ins[i].count %d\n\n", g->num_ins[i].count);
 }
 
 void	get_best_alg(t_general *g, int i)
@@ -183,12 +177,7 @@ void	get_best_alg(t_general *g, int i)
 			if (ft_atoi(g->array[a]) < current_number && ft_atoi(g->array[0]) > current_number)
 				res = -1;
 		}
-		printf("RES %d\n", res);
-		if (res == -1)
-			g->num_ins[i].stack_a_rotate = 0;
-		if (res != -1) //	ЕЩЕ РАЗ РАЗОБРАТЬСЯ С RES 
-		//	он должен быть либо 1 либо 0, при -1
-			g->num_ins[i].stack_a_rotate = get_min_way(g->array, res) + 1;
+		g->num_ins[i].stack_a_rotate = get_min_way(g->array, res) + 1;
 		g->num_ins[i].stack_b_rotate = get_min_way(g->stack_b, get_pos_elem(g->stack_b, g->num_ins[i].number));
 		g->num_ins[i].count = (abs)(g->num_ins[i].stack_a_rotate) + (abs)(g->num_ins[i].stack_b_rotate);
 	}
@@ -221,13 +210,21 @@ void	init_struct(t_general *g)
 	}
 }
 
+void	make_counts_struct(t_general *g)
+{
+	g->num_ins = NULL;
+	g->num_ins = (t_num_ins *)malloc(sizeof(t_num_ins)
+	* (get_len_array(g->stack_b) + 1));
+	init_struct(g);
+}
+
 int	get_number(t_general *g)
 {
 	int	len;
 	int	i;
-
 	int	return_id;
 	int	count_return_id;
+
 	len = get_len_array(g->stack_b);
 	count_return_id = g->num_ins[0].count;
 	return_id = 0;
@@ -244,24 +241,14 @@ int	get_number(t_general *g)
 			i++;
 		}
 	}
-	return (return_id); 
+	return (return_id);
 }
 
 void	back_push(t_general *g)
 {
-	int	best_id;
-	print_array(g->array, "A");
-	print_array(g->stack_b, "B");
-	g->num_ins = NULL;
-	g->num_ins = (t_num_ins *)malloc(sizeof(t_num_ins)
-	* (get_len_array(g->stack_b) + 1));
 	while (get_len_array(g->stack_b) ^ 0)
 	{
-		init_struct(g);
-		best_id = get_number(g);
-		pushing_number(g, best_id);
-		print_array(g->array, "A");
-		print_array(g->stack_b, "B");
+		make_counts_struct(g);
+		pushing_number(g, get_number(g));
 	}
-	free(g->num_ins);
 }
