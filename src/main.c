@@ -1,19 +1,5 @@
 #include "push_swap.h"
 
-void	ft_error(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	if (str)
-	{
-		while (str[i])
-			i++;
-		write(1, str, i);
-	}
-	exit (0);
-}
-
 void	push_swap(t_general *g)
 {
 	if (check_sort(g->array) == 0)
@@ -34,43 +20,13 @@ void	push_swap(t_general *g)
 	complete_sort(g);
 }
 
-// void	check_max_int(t_general *g)
-// {
-
-// }
-
-void	check_non_numeric(t_general *g)
-{
-	int	i;
-	int a;
-
-	i = 0;
-	while (g->array[i] != NULL)
-	{
-		a = 0;
-		while (g->array[i][a])
-		{
-			if (ft_isdigit(g->array[i][a]) == 0)
-				ft_error("Error! Non numeric parameters.\n");
-			a++;
-		}
-		i++;
-	}
-}
-
 int	main(int ac, char **av)
 {
 	t_general	g;
 	t_list	*lst;
 
-	if (ac < 2)
-		ft_error("Error this number arguments.\n");
 	ft_bzero(&g, sizeof(t_general));
-	parse_number_values(&g, av);
-	make_array_values(&g, av);
-	check_non_numeric(&g);
-	// check_max_int(&g);
-	check_doubles_arr(g.array);
+	errors_detected(&g, ac, av);
 	push_swap(&g);
 	return (0);
 }

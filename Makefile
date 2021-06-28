@@ -17,6 +17,7 @@ LIBFT =		Libft/libft.a
 OBJD =		objects/
 
 SRS =		main.c \
+			errors.c \
 			make_array.c \
 			quick_sort.c \
 			prints.c \
@@ -44,7 +45,7 @@ OBJECTS =	$(addprefix $(OBJD), $(patsubst %.c, %.o, $(SRS)))
 
 INCLUDES =	-I inc/ -I Libft/
 
-CFLAGS =	-O2 -g
+CFLAGS =	-O2 -g -fsanitize=address
 
 CC =		gcc
 

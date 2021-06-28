@@ -2,10 +2,10 @@
 
 void	push_a(t_general *g)
 {
-	main_lis(g);
 	int	a;
 	int	i;
-	int	lol;	
+
+	main_lis(g);
 	a = get_len_array(g->array);
 	i = 0;
 	while (i ^ a)

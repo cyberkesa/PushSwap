@@ -109,4 +109,6 @@ int		check_lises(t_general *g, char *elem);
 void	back_in_a(t_general *g);
 void	back_push(t_general *g);
 
+void	errors_detected(t_general *g, int ac, char **av);
+
 #endif
