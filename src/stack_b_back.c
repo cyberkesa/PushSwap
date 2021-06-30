@@ -1,75 +1,25 @@
 #include "push_swap.h"
 
-int	find_max_in_a(t_general *g)
-{
-	int	max;
-	int	i;
-	int	len;
-	i = 1;
-	len = get_len_array(g->array);
-	max = ft_atoi(g->array[0]);
-	while (i ^ len)
-	{
-		if (ft_atoi(g->array[i]) > max)
-			max = ft_atoi(g->array[i]);
-		i++;
-	}
-	return (max);
-}
-
-int	find_min_in_a(t_general *g)
-{
-	int	min;
-	int	i;
-	i = 1;
-	min = ft_atoi(g->array[0]);
-	while (i ^ get_len_array(g->array))
-	{
-		if (ft_atoi(g->array[i]) < min)
-			min = ft_atoi(g->array[i]);
-		i++;
-	}
-	return (min);
-}
-
 void	pushing_number(t_general *g, int number_id)
 {
 	if (g->num_ins[number_id].ra > 0)
 		while (g->num_ins[number_id].ra--)
-		{
 			ra_ins(g);
-			printf("ra\n");
-		}
 	if (g->num_ins[number_id].rra > 0)
 		while (g->num_ins[number_id].rra--)
-		{
 			rra_ins(g);
-			printf("rra\n");
-		}
 	if (g->num_ins[number_id].rb > 0)
 		while (g->num_ins[number_id].rb--)
-		{
 			rb_ins(g);
-			printf("rb\n");
-		}
 	if (g->num_ins[number_id].rrb > 0)
 		while (g->num_ins[number_id].rrb--)
-		{
 			rrb_ins(g);
-			printf("rrb\n");
-		}
 	if (g->num_ins[number_id].rr > 0)
 		while (g->num_ins[number_id].rr--)
-		{
 			rr_ins(g);
-			printf("rr\n");
-		}
 	if (g->num_ins[number_id].rrr > 0)
 		while (g->num_ins[number_id].rrr--)
-		{
 			rrr_ins(g);
-			printf("rrr\n");
-		}
 	pa_ins(g);
 }
 

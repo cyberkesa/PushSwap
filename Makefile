@@ -26,6 +26,7 @@ SRS =		main.c \
 			ins_swap.c \
 			ins_rotate.c \
 			ins_adjacent.c \
+			ins_adjacent_1.c \
 			get_utils.c \
 			check_sorts.c \
 			complete.c \
@@ -35,6 +36,7 @@ SRS =		main.c \
 			lis.c \
 			lis_stack_a.c \
 			stack_b_back.c \
+			stack_b_utils.c \
 			stack_a_push.c
 
 SRCD =		src/

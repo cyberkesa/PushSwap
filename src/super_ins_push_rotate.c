@@ -29,18 +29,12 @@ int	push_b_with_rotate(t_general *g, char **array, int rotate)
 	if (rotate > 0)
 	{
 		while (rotate--)
-		{
 			ra_ins(g);
-			printf("ra\n");
-		}
 	}
 	else if (rotate < 0)
 	{
 		while (rotate++ != 0)
-		{
 			rra_ins(g);
-			printf("rra\n");
-		}
 	}
 	pb_ins(g);
 	return (rotate);

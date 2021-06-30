@@ -21,11 +21,12 @@ void	ft_exit(t_general *g)
 
 void	complete_sort(t_general *g)
 {
-	if (check_sort(g->array) == 0)
-		printf("\033[32m\nCортировка:			ОК\n\033[1m\033[32m");
-	else
-		printf("\033[31m\nCортировка:			ERRRROOOOOOR!!!!!!!!!!!!!\n\033[1m\033[31m");
-	printf("nКоличество аргументов подано:	%zu\n", g->len_argc);
-	print_light_array(g->array, -1);
+	// if (check_sort(g->array) == 0)
+	// 	printf("\033[32m\nCортировка:			ОК\n\033[1m\033[32m");
+	// else
+	// 	printf("\033[31m\nCортировка:			ERROR!\n\033[1m\033[31m");
+	// printf("Кол-во инструкций:		%zu\n", g->number_ins);
+	// printf("Кол-во аргументов:		%zu\n", g->len_argc);
+	// print_light_array(g->array, -1);
 	ft_exit(g);
 }

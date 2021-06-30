@@ -51,4 +51,3 @@ void	check_doubles_arr(char **array)
 		next = 0;
 	}
 }
-

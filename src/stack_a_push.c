@@ -12,10 +12,7 @@ void	push_a(t_general *g)
 	while (i ^ a)
 	{
 		if (check_lises(g, g->array[0]) == 1)
-		{
 			ra_ins(g);
-			printf("ra\n");
-		}
 		if (check_lises(g, g->array[0]) == 0)
 			pb_ins(g);
 		i++;

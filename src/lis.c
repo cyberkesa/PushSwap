@@ -81,4 +81,5 @@ void	main_lis(t_general *g)
 	}
 	g->lis = super_lis(g->array, g, best_root);
 	g->len_liss = len_lis;
+	// print_array(g->lis, "LIS <3");
 }

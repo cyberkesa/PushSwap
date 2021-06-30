@@ -20,18 +20,12 @@ int	just_rotate_a(t_general *g, char **array, int rotate)
 	if (rotate > 0)
 	{
 		while (rotate--)
-		{
 			ra_ins(g);
-			printf("ra\n");
-		}
 	}
 	else if (rotate < 0)
 	{
 		while (rotate++ != 0)
-		{
 			rra_ins(g);
-			printf("rra\n");
-		}
 	}
 	return (rotate);
 }

@@ -1,25 +1,27 @@
 #include "push_swap.h"
 
-void	sa_ins(t_general *general)
+void	sa_ins(t_general *g)
 {
 	char	*tmp;
 
-	if (!(general->array[0]) || !(general->array[1]))
+	if (!(g->array[0]) || !(g->array[1]))
 		return ;
-	tmp = general->array[0];
-	general->array[0] = general->array[1];
-	general->array[1] = tmp;
+	tmp = g->array[0];
+	g->array[0] = g->array[1];
+	g->array[1] = tmp;
+	g->number_ins++;
 	printf("sa\n");
 }
 
-void	sb_ins(t_general *general)
+void	sb_ins(t_general *g)
 {
 	char	*tmp;
 
-	if (!(general->stack_b[0]) || !(general->stack_b[1]))
+	if (!(g->stack_b[0]) || !(g->stack_b[1]))
 		return ;
-	tmp = general->stack_b[0];
-	general->stack_b[0] = general->stack_b[1];
-	general->stack_b[1] = tmp;
+	tmp = g->stack_b[0];
+	g->stack_b[0] = g->stack_b[1];
+	g->stack_b[1] = tmp;
+	g->number_ins++;
 	printf("sb\n");
 }

@@ -44,6 +44,7 @@ void	pa_ins(t_general *g)
 	free(g->array);
 	g->array = new_a;
 	g->stack_b = new_b;
+	g->number_ins++;
 	printf("pa\n");
 }
 
@@ -91,5 +92,6 @@ void	pb_ins(t_general *g)
 	free(g->array);
 	g->array = new_a;
 	g->stack_b = new_b;
+	g->number_ins++;
 	printf("pb\n");
 }
