@@ -19,9 +19,9 @@ void	push_swap(t_general *g)
 	if (check_sort(g->array) == 0)
 		complete_sort(g);
 	g->sort_array = quick_sort_arr(g->sort_array, 0,
-	get_len_array(g->sort_array) - 1);
+			get_len_array(g->sort_array) - 1);
 	g->middle = get_middle_values(g->sort_array,
-	get_len_array(g->sort_array));
+			get_len_array(g->sort_array));
 	if (g->len_argc == 3)
 		alg_three(g);
 	else if (g->len_argc > 3 && g->len_argc < 6)
@@ -45,7 +45,7 @@ void	all_night(t_general *g)
 int	main(int ac, char **av)
 {
 	t_general	g;
-	t_list	*lst;
+	t_list		*lst;
 
 	if (ac < 2)
 		ft_error("Error this number arguments.\n");

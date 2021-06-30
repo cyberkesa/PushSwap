@@ -12,10 +12,12 @@ char	**qs_swap(char **array, size_t a, size_t b)
 
 char	**quick_sort_arr(char **array, int b, int e)
 {
-	int	l = b;
-	int	r = e;
-	int		pivot;
+	int	l;
+	int	r;
+	int	pivot;
 
+	l = b;
+	r = e;
 	pivot = ft_atoi(array[(l + r) / 2]);
 	while (l <= r)
 	{

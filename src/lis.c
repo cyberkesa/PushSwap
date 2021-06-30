@@ -1,24 +1,12 @@
 #include "push_swap.h"
 
-int		find_last_elem(char **array)
-{
-	size_t	i;
-
-	i = 0;
-	while (array[i] != NULL)
-		i++;
-	if (!i)
-		return (-1);
-	return (ft_atoi(array[i - 1]));
-}
-
 char	**super_lis(char **array, t_general *g, int root)
 {
 	char	**lis;
 	size_t	i;
 	size_t	a;
-	int	meow;
-	int	curent;
+	int		meow;
+	int		curent;
 
 	i = root;
 	a = 1;
@@ -30,7 +18,7 @@ char	**super_lis(char **array, t_general *g, int root)
 		if (ft_atoi(array[i]) > find_last_elem(lis))
 		{
 			meow = ft_atoi(g->sort_array[(get_pos_elem(g->sort_array,
-			array[i])) % get_len_array(g->sort_array)]);
+							array[i])) % get_len_array(g->sort_array)]);
 			if (ft_atoi(array[i]) <= meow)
 			{
 				lis[a] = array[i];
@@ -46,7 +34,7 @@ char	**super_lis(char **array, t_general *g, int root)
 		if (ft_atoi(array[i]) > find_last_elem(lis))
 		{
 			curent = ft_atoi(g->sort_array[(get_pos_elem(g->sort_array,
-			array[i])) % get_len_array(g->sort_array)]);
+							array[i])) % get_len_array(g->sort_array)]);
 			if (ft_atoi(array[i]) <= curent)
 			{
 				lis[a] = array[i];
@@ -81,5 +69,4 @@ void	main_lis(t_general *g)
 	}
 	g->lis = super_lis(g->array, g, best_root);
 	g->len_liss = len_lis;
-	// print_array(g->lis, "LIS <3");
 }

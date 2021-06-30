@@ -3,7 +3,7 @@
 int	get_min_way(char **array, size_t pos_elem)
 {
 	size_t	len;
-	int	rotate;
+	int		rotate;
 
 	rotate = 0;
 	len = get_len_array(array);

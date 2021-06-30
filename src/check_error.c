@@ -3,10 +3,10 @@
 int	rotate_master(char **array, char ab)
 {
 	size_t	len;
-	int	ra_x;
-	int	rra_x;
-	int	max;
-	int	min;
+	int		ra_x;
+	int		rra_x;
+	int		max;
+	int		min;
 
 	if (array[0] == NULL)
 		return(-1);

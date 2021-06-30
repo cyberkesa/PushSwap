@@ -22,7 +22,8 @@ SRS =		main.c \
 			prints.c \
 			algorithm.c \
 			check_error.c \
-			ins_push.c \
+			ins_push_pa.c \
+			ins_push_pb.c \
 			ins_swap.c \
 			ins_rotate.c \
 			ins_adjacent.c \
@@ -36,6 +37,8 @@ SRS =		main.c \
 			lis.c \
 			lis_stack_a.c \
 			stack_b_back.c \
+			stack_b_back_1.c \
+			stack_b_back_alg.c \
 			stack_b_utils.c \
 			stack_a_push.c
 

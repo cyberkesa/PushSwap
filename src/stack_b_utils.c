@@ -5,6 +5,7 @@ int	find_max_in_a(t_general *g)
 	int	max;
 	int	i;
 	int	len;
+
 	i = 1;
 	len = get_len_array(g->array);
 	max = ft_atoi(g->array[0]);
@@ -21,6 +22,7 @@ int	find_min_in_a(t_general *g)
 {
 	int	min;
 	int	i;
+
 	i = 1;
 	min = ft_atoi(g->array[0]);
 	while (i ^ get_len_array(g->array))

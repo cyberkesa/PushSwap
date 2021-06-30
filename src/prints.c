@@ -32,4 +32,3 @@ void	print_array(char **array, char *s)
 	}
 	printf("\n");
 }
-

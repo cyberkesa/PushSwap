@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int		get_pos_elem(char **array, char *elem)
+int	get_pos_elem(char **array, char *elem)
 {
 	int	pos;
 
@@ -31,10 +31,10 @@ char	*get_middle_values(char **array_for_find, size_t lens)
 
 int	get_current_max(char **array)
 {
-	int	max;
+	int		max;
 	size_t	p;
-	int	pos;
-	int	i;
+	int		pos;
+	int		i;
 
 	max = ft_atoi(array[0]);
 	p = 1;
@@ -57,10 +57,10 @@ int	get_current_max(char **array)
 
 int	get_current_min(char **array)
 {
-	int	min;
+	int		min;
 	size_t	p;
-	int	pos;
-	int	i;
+	int		pos;
+	int		i;
 
 	p = 1;
 	min = ft_atoi(array[0]);

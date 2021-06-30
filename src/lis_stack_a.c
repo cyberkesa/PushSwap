@@ -1,6 +1,18 @@
 #include "push_swap.h"
 
-int		check_lises(t_general *g, char *elem)
+int	find_last_elem(char **array)
+{
+	size_t	i;
+
+	i = 0;
+	while (array[i] != NULL)
+		i++;
+	if (!i)
+		return (-1);
+	return (ft_atoi(array[i - 1]));
+}
+
+int	check_lises(t_general *g, char *elem)
 {
 	size_t	i;
 

@@ -102,5 +102,8 @@ void	rb_rr(t_general *g);
 void	ra_rr(t_general *g);
 void	rra_rrr(t_general *g);
 void	rrb_rrr(t_general *g);
+void	get_best_alg(t_general *g, int i);
+void	processing_ins(t_general *g, int i);
+int		find_last_elem(char **array);
 
 #endif

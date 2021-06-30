@@ -15,7 +15,8 @@ void	make_array_values(t_general *general, char **av)
 {
 	size_t		len;
 
-	general->sort_array = (char **)malloc(sizeof(char *) * (general->len_argc + 1));
+	general->sort_array = (char **)malloc(sizeof(char *)
+			* (general->len_argc + 1));
 	general->array = (char **)malloc(sizeof(char *) * (general->len_argc + 1));
 	general->stack_b = (char **)malloc(sizeof(char *) * (1));
 	len = 0;
