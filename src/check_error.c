@@ -9,7 +9,7 @@ int	rotate_master(char **array, char ab)
 	int		min;
 
 	if (array[0] == NULL)
-		return(-1);
+		return (-1);
 	len = get_len_array(array);
 	max = get_current_max(array);
 	min = get_current_min(array);
@@ -42,7 +42,7 @@ void	check_doubles_arr(char **array)
 			if (next == current)
 				next++;
 			if (array[next] == NULL)
-				return;
+				return ;
 			if (ft_strcmp(array[next], array[current]) == 0)
 				ft_error("Error, doubles element!\n");
 			next++;
