@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static	int	is_set(char s, char const *set, size_t lenset)
+static int	is_set(char s, char const *set, size_t lenset)
 {
 	size_t	i;
 
@@ -15,7 +15,7 @@ static	int	is_set(char s, char const *set, size_t lenset)
 	return (0);
 }
 
-static	int	end_pos(char const *s1, char const *set)
+static int	end_pos(char const *s1, char const *set)
 {
 	size_t	lenset;
 	size_t	i;
@@ -29,7 +29,7 @@ static	int	end_pos(char const *s1, char const *set)
 	return (ft_strlen(s1) - a);
 }
 
-static	int	s_pos(char const *s1, char const *set)
+static int	s_pos(char const *s1, char const *set)
 {
 	size_t	lenset;
 	size_t	i;
@@ -41,7 +41,7 @@ static	int	s_pos(char const *s1, char const *set)
 	return (i);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
 

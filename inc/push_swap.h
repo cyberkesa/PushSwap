@@ -34,7 +34,6 @@ typedef struct s_general
 	char		*middle;
 	int			flag;
 	size_t		number_ins;
-
 }				t_general;
 
 void	push_a(t_general *g);
@@ -97,8 +96,8 @@ void	main_lis(t_general *g);
 void	next_from_lis(t_general *g);
 int		check_lises(t_general *g, char *elem);
 void	back_push(t_general *g);
-int	find_max_in_a(t_general *g);
-int	find_min_in_a(t_general *g);
+int		find_max_in_a(t_general *g);
+int		find_min_in_a(t_general *g);
 void	rb_rr(t_general *g);
 void	ra_rr(t_general *g);
 void	rra_rrr(t_general *g);

@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static	char		**free_leak(char **arr)
+static char	**free_leak(char **arr)
 {
 	unsigned int	l;
 
@@ -14,7 +14,7 @@ static	char		**free_leak(char **arr)
 	return (NULL);
 }
 
-static	size_t		words_x(char const *s, char c)
+static size_t	words_x(char const *s, char c)
 {
 	size_t			words;
 
@@ -33,7 +33,7 @@ static	size_t		words_x(char const *s, char c)
 	return (words);
 }
 
-static	void		next(char **line, unsigned int *len,
+static void	next(char **line, unsigned int *len,
 					char c)
 {
 	unsigned int	i;
@@ -57,22 +57,21 @@ char	**ft_split(char const *s, char c)
 	char			**arr;
 	char			*line;
 	unsigned int	len;
-	unsigned int	words;
 	unsigned int	i;
 
 	i = 0;
 	len = 0;
 	if (!s)
 		return (NULL);
-	words = words_x(s, c);
-	arr = malloc(sizeof(char *) * (words + 1));
+	arr = malloc(sizeof(char *) * (words_x(s, c) + 1));
 	if (!(arr))
 		return (NULL);
 	line = (char *)s;
-	while (i < words)
+	while (i < words_x(s, c))
 	{
 		next(&line, &len, c);
-		if (!(arr[i] = malloc(sizeof(char) * (len + 1))))
+		arr[i] = malloc(sizeof(char) * (len + 1));
+		if (!(arr[i]))
 			return (free_leak(arr));
 		ft_strlcpy(arr[i], line, len + 1);
 		i++;

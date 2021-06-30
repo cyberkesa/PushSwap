@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *haystack,
 			if (i + a > (len - 1))
 				return (0);
 			if (a == nl - 1)
-				return (char *)(haystack + i);
+				return ((char *)(haystack + i));
 			a++;
 		}
 		i++;

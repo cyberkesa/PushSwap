@@ -33,6 +33,15 @@ void	push_swap(t_general *g)
 	}
 }
 
+void	all_night(t_general *g)
+{
+	while (get_len_array(g->stack_b) ^ 0)
+		back_push(g);
+	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
+		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
+	complete_sort(g);
+}
+
 int	main(int ac, char **av)
 {
 	t_general	g;

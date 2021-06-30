@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static	int	len(long l)
+static int	len(long l)
 {
 	int		len;
 
@@ -22,17 +22,8 @@ static	int	len(long l)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_itoa_1(long l, char*array, int i)
 {
-	char	*array;
-	long	l;
-	int		i;
-
-	l = n;
-	i = len(l);
-	if (!(array = (char*)malloc(sizeof(char) * (i + 1) + (l <= 0 ? 0 : 1))))
-		return (NULL);
-	array[i--] = '\0';
 	if (l == 0)
 		array[0] = 48;
 	if (l < 0)
@@ -47,4 +38,24 @@ char	*ft_itoa(int n)
 		i--;
 	}
 	return (array);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*array;
+	long	l;
+	int		i;
+	int		res;
+
+	l = n;
+	if (l > 0)
+		res = 1;
+	if (l <= 0)
+		res = 0;
+	i = len(l);
+	array = (char *)malloc(sizeof(char) * (i + 1) + res);
+	if (!(array))
+		return (NULL);
+	array[i--] = '\0';
+	return (ft_itoa_1(l, array, i));
 }

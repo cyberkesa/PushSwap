@@ -12,6 +12,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	lasts = s + (len - 1);
 	lastd = d + (len - 1);
 	if (dst != 0 || src != 0)
+	{
 		while (len--)
 		{
 			if (d < s)
@@ -19,5 +20,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			else
 				*lastd-- = *lasts--;
 		}
+	}
 	return (dst);
 }

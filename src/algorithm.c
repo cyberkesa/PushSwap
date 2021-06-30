@@ -10,7 +10,7 @@ int	maybe_sa(char **array)
 int	insert_sorts(t_general *g)
 {
 	if (check_sort(g->array) == 1
-	&& get_len_array(g->stack_b) == 0)
+		&& get_len_array(g->stack_b) == 0)
 		return (1);
 	return (0);
 }
@@ -53,13 +53,4 @@ int	get_middle(int count, t_general *g)
 		i++;
 	}
 	return (i);
-}
-
-void	all_night(t_general *g)
-{
-	while (get_len_array(g->stack_b) ^ 0)
-		back_push(g);
-	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
-		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
-	complete_sort(g);
 }
