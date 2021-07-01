@@ -20,7 +20,6 @@ SRS =		main.c \
 			check_sorts.c \
 			complete.c \
 			alg_five.c \
-			utils_alg.c \
 			super_ins_push_rotate.c \
 			lis.c \
 			lis_stack_a.c \
@@ -29,7 +28,8 @@ SRS =		main.c \
 			stack_b_back_1.c \
 			stack_b_back_alg.c \
 			stack_b_utils.c \
-			stack_a_push.c
+			stack_a_push.c \
+			errors.c
 
 SRCD =		src/
 
@@ -44,9 +44,8 @@ CC =		gcc
 all: lib $(NAME)
 
 $(NAME):: $(LIBFT) $(OBJD)
-$(NAME):: $(OBJECTS) $(LIBFT) #CHECKER
+$(NAME):: $(OBJECTS) $(LIBFT)
 	@$(CC) $(CFLAGS) -o $@ $(INCLUDES) $^
-#CHECKER
 	@printf "\x1b[7mCreate: "
 	@printf $@
 	@printf "\x1b[7m\n"

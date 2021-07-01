@@ -1,13 +1,24 @@
 #include "push_swap.h"
 
+void	alg_three(t_general *g)
+{
+	if (check_polusort_stack_a(g->a) == 0)
+		sa_ins(g);
+	if (check_sort(g->a) == 0)
+		complete_sort(g);
+	if (g->a[0] == g->middle)
+		rra_ins(g);
+	else
+		ra_ins(g);
+}
+
 void	alg_five_1(t_general *g, int i, int rotate)
 {
 	while (i != g->len_argc)
 	{
 		if (check_sort(g->a) == 0)
 			break ;
-		rotate = get_min_way(g->a,
-				get_pos_elem(g->a, g->sort[i]));
+		rotate = get_min_way(g->a, get_pos_elem(g->a, g->sort[i]));
 		push_b_with_rotate(g, g->a, rotate);
 		if (get_len_array(g->a) == 3)
 		{

@@ -22,6 +22,8 @@ void	push_swap(t_general *g)
 			get_len_array(g->sort) - 1);
 	g->middle = get_middle_values(g->sort,
 			get_len_array(g->sort));
+	if (g->len_argc < 4)
+		alg_three(g);
 	if (g->len_argc > 3 && g->len_argc < 6)
 		alg_five(g);
 	else if (g->len_argc > 5)
@@ -46,7 +48,8 @@ int	main(int ac, char **av)
 	t_list		*lst;
 
 	if (ac < 2)
-		ft_error("Error this number arguments.\n");
+		exit(0);
+	check_errors(av);
 	ft_bzero(&g, sizeof(t_general));
 	parse_number_values(&g, av);
 	make_array_values(&g, av);
