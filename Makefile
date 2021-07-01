@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: vwinfred <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/11/23 12:04:48 by vwinfred          #+#    #+#              #
-#    Updated: 2021/01/14 19:17:23 by vwinfred         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME =		push_swap
 
 LIBFT =		Libft/libft.a
@@ -31,12 +19,13 @@ SRS =		main.c \
 			get_utils.c \
 			check_sorts.c \
 			complete.c \
-			algorithm_before.c \
+			alg_five.c \
 			utils_alg.c \
 			super_ins_push_rotate.c \
 			lis.c \
 			lis_stack_a.c \
 			stack_b_back.c \
+			stack_b_init.c \
 			stack_b_back_1.c \
 			stack_b_back_alg.c \
 			stack_b_utils.c \

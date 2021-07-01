@@ -7,12 +7,12 @@ void	pb_1(t_general *g, char **new_a, char **new_b, size_t len_b)
 
 	i = 1;
 	a = 0;
-	new_b[0] = g->array[0];
+	new_b[0] = g->a[0];
 	if (len_b > 0)
 	{
 		while (a != len_b)
 		{
-			new_b[i] = g->stack_b[a];
+			new_b[i] = g->b[a];
 			i++;
 			a++;
 		}
@@ -20,10 +20,10 @@ void	pb_1(t_general *g, char **new_a, char **new_b, size_t len_b)
 	}
 	else
 		new_b[1] = NULL;
-	free(g->stack_b);
-	free(g->array);
-	g->array = new_a;
-	g->stack_b = new_b;
+	free(g->b);
+	free(g->a);
+	g->a = new_a;
+	g->b = new_b;
 	g->number_ins++;
 	printf("pb\n");
 }
@@ -36,19 +36,19 @@ void	pb_ins(t_general *g)
 	size_t	i;
 	size_t	a;
 
-	len_a = get_len_array(g->array);
+	len_a = get_len_array(g->a);
 	if (len_a == 0)
 		return ;
 	new_a = (char **)malloc(sizeof(char *) * (len_a));
-	new_b = (char **)malloc(sizeof(char *) * (get_len_array(g->stack_b) + 2));
+	new_b = (char **)malloc(sizeof(char *) * (get_len_array(g->b) + 2));
 	i = 0;
 	a = 1;
 	while (a != len_a)
 	{
-		new_a[i] = g->array[a];
+		new_a[i] = g->a[a];
 		a++;
 		i++;
 	}
 	new_a[i] = NULL;
-	pb_1(g, new_a, new_b, get_len_array(g->stack_b));
+	pb_1(g, new_a, new_b, get_len_array(g->b));
 }

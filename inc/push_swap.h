@@ -23,17 +23,17 @@ typedef struct s_num_ins
 typedef struct s_general
 {
 	t_num_ins	*num_ins;
+	char		**a;
+	char		**b;
+	char		**lis;
+	char		**unliss;
+	char		**sort;
+	char		*middle;
 	size_t		len_argc;
 	size_t		len_arr;
 	size_t		len_liss;
-	char		**array;
-	char		**lis;
-	char		**new_sort_unliss;
-	char		**sort_array;
-	char		**stack_b;
-	char		*middle;
-	int			flag;
 	size_t		number_ins;
+	int			flag;
 }				t_general;
 
 void	push_a(t_general *g);
@@ -105,5 +105,8 @@ void	rrb_rrr(t_general *g);
 void	get_best_alg(t_general *g, int i);
 void	processing_ins(t_general *g, int i);
 int		find_last_elem(char **array);
+void	init_numbers(t_general *g);
+void	init_struct(t_general *g);
+void	alg_four(t_general *g);
 
 #endif

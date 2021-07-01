@@ -7,12 +7,12 @@ int	find_max_in_a(t_general *g)
 	int	len;
 
 	i = 1;
-	len = get_len_array(g->array);
-	max = ft_atoi(g->array[0]);
+	len = get_len_array(g->a);
+	max = ft_atoi(g->a[0]);
 	while (i ^ len)
 	{
-		if (ft_atoi(g->array[i]) > max)
-			max = ft_atoi(g->array[i]);
+		if (ft_atoi(g->a[i]) > max)
+			max = ft_atoi(g->a[i]);
 		i++;
 	}
 	return (max);
@@ -24,11 +24,11 @@ int	find_min_in_a(t_general *g)
 	int	i;
 
 	i = 1;
-	min = ft_atoi(g->array[0]);
-	while (i ^ get_len_array(g->array))
+	min = ft_atoi(g->a[0]);
+	while (i ^ get_len_array(g->a))
 	{
-		if (ft_atoi(g->array[i]) < min)
-			min = ft_atoi(g->array[i]);
+		if (ft_atoi(g->a[i]) < min)
+			min = ft_atoi(g->a[i]);
 		i++;
 	}
 	return (min);

@@ -35,11 +35,11 @@ char	**re_sort_array(t_general *g)
 	i = 0;
 	a = 0;
 	new_sort = (char **)malloc(sizeof(char *) * (g->len_liss + 1));
-	while (g->sort_array[i] != NULL)
+	while (g->sort[i] != NULL)
 	{
-		if (check_lises(g, g->sort_array[i]) == 1)
+		if (check_lises(g, g->sort[i]) == 1)
 		{
-			new_sort[a] = g->sort_array[i];
+			new_sort[a] = g->sort[i];
 			a++;
 		}
 		i++;
@@ -50,5 +50,5 @@ char	**re_sort_array(t_general *g)
 
 void	next_from_lis(t_general *g)
 {
-	g->new_sort_unliss = re_sort_array(g);
+	g->unliss = re_sort_array(g);
 }

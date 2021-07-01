@@ -15,18 +15,18 @@ void	make_array_values(t_general *general, char **av)
 {
 	size_t		len;
 
-	general->sort_array = (char **)malloc(sizeof(char *)
+	general->sort = (char **)malloc(sizeof(char *)
 			* (general->len_argc + 1));
-	general->array = (char **)malloc(sizeof(char *) * (general->len_argc + 1));
-	general->stack_b = (char **)malloc(sizeof(char *) * (1));
+	general->a = (char **)malloc(sizeof(char *) * (general->len_argc + 1));
+	general->b = (char **)malloc(sizeof(char *) * (1));
 	len = 0;
 	while (len < general->len_argc)
 	{
-		general->array[len] = av[len + 1];
-		general->sort_array[len] = general->array[len];
+		general->a[len] = av[len + 1];
+		general->sort[len] = general->a[len];
 		len++;
 	}
-	general->sort_array[len] = NULL;
-	general->array[len] = NULL;
-	general->stack_b[0] = NULL;
+	general->sort[len] = NULL;
+	general->a[len] = NULL;
+	general->b[0] = NULL;
 }

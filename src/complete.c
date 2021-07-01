@@ -12,10 +12,10 @@ void	free_array(char **r)
 
 void	ft_exit(t_general *g)
 {
-	free(g->array);
-	free(g->stack_b);
-	free(g->sort_array);
-	free(g->new_sort_unliss);
+	free(g->a);
+	free(g->b);
+	free(g->sort);
+	free(g->unliss);
 	exit (0);
 }
 

@@ -9,8 +9,8 @@ int	maybe_sa(char **array)
 
 int	insert_sorts(t_general *g)
 {
-	if (check_sort(g->array) == 1
-		&& get_len_array(g->stack_b) == 0)
+	if (check_sort(g->a) == 1
+		&& get_len_array(g->b) == 0)
 		return (1);
 	return (0);
 }
@@ -48,7 +48,7 @@ int	get_middle(int count, t_general *g)
 	i = 0;
 	while (count && count ^ g->len_liss)
 	{
-		if (check(ft_atoi(g->sort_array[i]), g))
+		if (check(ft_atoi(g->sort[i]), g))
 			count--;
 		i++;
 	}

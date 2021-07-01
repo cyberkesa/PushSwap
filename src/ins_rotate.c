@@ -7,17 +7,17 @@ void	ra_ins(t_general *g)
 	size_t	a;
 	char	*tmp;
 
-	len = get_len_array(g->array);
+	len = get_len_array(g->a);
 	i = 0;
 	a = 1;
-	tmp = g->array[0];
-	while (g->array[i])
+	tmp = g->a[0];
+	while (g->a[i])
 	{
-		g->array[i] = g->array[a];
+		g->a[i] = g->a[a];
 		i++;
 		a++;
 	}
-	g->array[i - 1] = tmp;
+	g->a[i - 1] = tmp;
 	g->number_ins++;
 	printf("ra\n");
 }
@@ -29,17 +29,17 @@ void	rb_ins(t_general *g)
 	size_t	b;
 	char	*tmp;
 
-	len = get_len_array(g->stack_b);
+	len = get_len_array(g->b);
 	i = 0;
 	b = 1;
-	tmp = g->stack_b[0];
-	while (g->stack_b[i])
+	tmp = g->b[0];
+	while (g->b[i])
 	{
-		g->stack_b[i] = g->stack_b[b];
+		g->b[i] = g->b[b];
 		i++;
 		b++;
 	}
-	g->stack_b[i - 1] = tmp;
+	g->b[i - 1] = tmp;
 	g->number_ins++;
 	printf("rb\n");
 }
@@ -49,11 +49,11 @@ void	rra_ins(t_general *g)
 	size_t	len;
 	char	*tmp;
 
-	len = get_len_array(g->array);
-	tmp = g->array[len - 1];
+	len = get_len_array(g->a);
+	tmp = g->a[len - 1];
 	while (--len)
-		g->array[len] = g->array[len - 1];
-	g->array[0] = tmp;
+		g->a[len] = g->a[len - 1];
+	g->a[0] = tmp;
 	g->number_ins++;
 	printf("rra\n");
 }
@@ -63,11 +63,11 @@ void	rrb_ins(t_general *g)
 	size_t	len;
 	char	*tmp;
 
-	len = get_len_array(g->stack_b);
-	tmp = g->stack_b[len - 1];
+	len = get_len_array(g->b);
+	tmp = g->b[len - 1];
 	while (--len)
-		g->stack_b[len] = g->stack_b[len - 1];
-	g->stack_b[0] = tmp;
+		g->b[len] = g->b[len - 1];
+	g->b[0] = tmp;
 	g->number_ins++;
 	printf("rrb\n");
 }

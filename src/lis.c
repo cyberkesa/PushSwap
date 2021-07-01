@@ -1,40 +1,54 @@
 #include "push_swap.h"
 
-void	super_lis(char **array, t_general *g, int root)
+void	super_lis_2(t_general *g, size_t i, int root, size_t a)
 {
-	size_t	i;
-	size_t	a;
-
-	i = root;
-	a = 1;
-	g->lis = (char **)malloc(sizeof(char *) * (get_len_array(array) + 1));
-	g->lis[0] = array[root];
-	g->lis[1] = NULL;
-	while (array[i + 1] != NULL)
-	{
-		if (ft_atoi(array[i]) > find_last_elem(g->lis))
-			if (ft_atoi(array[i]) <= ft_atoi(g->sort_array[(get_pos_elem(g->sort_array,
-							array[i])) % get_len_array(g->sort_array)]))
-			{
-				g->lis[a] = array[i];
-				g->lis[a + 1] = NULL;
-				a++;
-			}
-		i++;
-	}
-	i = 0;
 	while (i != root + 1)
 	{
-		if (ft_atoi(array[i]) > find_last_elem(g->lis))
-			if (ft_atoi(array[i]) <= ft_atoi(g->sort_array[(get_pos_elem(g->sort_array,
-							array[i])) % get_len_array(g->sort_array)]))
+		if (ft_atoi(g->a[i]) > find_last_elem(g->lis))
+		{
+			if (ft_atoi(g->a[i]) <= ft_atoi(g->sort[
+						(get_pos_elem(g->sort,
+								g->a[i])) % get_len_array(g->sort)]))
 			{
-				g->lis[a] = array[i];
+				g->lis[a] = g->a[i];
 				g->lis[a + 1] = NULL;
 				a++;
 			}
+		}
 		i++;
 	}
+}
+
+int	super_lis_1(t_general *g, size_t i, size_t a)
+{
+	while (g->a[i + 1] != NULL)
+	{
+		if (ft_atoi(g->a[i]) > find_last_elem(g->lis))
+		{
+			if (ft_atoi(g->a[i]) <= ft_atoi(g->sort[
+						(get_pos_elem(g->sort,
+								g->a[i])) % get_len_array(g->sort)]))
+			{
+				g->lis[a] = g->a[i];
+				g->lis[a + 1] = NULL;
+				a++;
+			}
+		}
+		i++;
+	}
+	return (a);
+}
+
+void	super_lis(t_general *g, int root)
+{
+	size_t	a;
+
+	a = 1;
+	g->lis = (char **)malloc(sizeof(char *) * (get_len_array(g->a) + 1));
+	g->lis[0] = g->a[root];
+	g->lis[1] = NULL;
+	a = super_lis_1(g, root, 1);
+	super_lis_2(g, 0, root, a);
 }
 
 void	main_lis(t_general *g)
@@ -45,9 +59,9 @@ void	main_lis(t_general *g)
 
 	len_lis = 0;
 	root = 0;
-	while (root != get_len_array(g->array))
+	while (root != get_len_array(g->a))
 	{
-		super_lis(g->array, g, root);
+		super_lis(g, root);
 		if (len_lis <= get_len_array(g->lis))
 		{
 			best_root = root;
@@ -56,6 +70,6 @@ void	main_lis(t_general *g)
 		free(g->lis);
 		root++;
 	}
-	super_lis(g->array, g, best_root);
+	super_lis(g, best_root);
 	g->len_liss = len_lis;
 }

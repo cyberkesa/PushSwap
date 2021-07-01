@@ -16,15 +16,13 @@ void	ft_error(char *str)
 
 void	push_swap(t_general *g)
 {
-	if (check_sort(g->array) == 0)
+	if (check_sort(g->a) == 0)
 		complete_sort(g);
-	g->sort_array = quick_sort_arr(g->sort_array, 0,
-			get_len_array(g->sort_array) - 1);
-	g->middle = get_middle_values(g->sort_array,
-			get_len_array(g->sort_array));
-	if (g->len_argc == 3)
-		alg_three(g);
-	else if (g->len_argc > 3 && g->len_argc < 6)
+	g->sort = quick_sort_arr(g->sort, 0,
+			get_len_array(g->sort) - 1);
+	g->middle = get_middle_values(g->sort,
+			get_len_array(g->sort));
+	if (g->len_argc > 3 && g->len_argc < 6)
 		alg_five(g);
 	else if (g->len_argc > 5)
 	{
@@ -35,10 +33,10 @@ void	push_swap(t_general *g)
 
 void	all_night(t_general *g)
 {
-	while (get_len_array(g->stack_b) ^ 0)
+	while (get_len_array(g->b) ^ 0)
 		back_push(g);
-	if (check_polusort_stack_a(g->array) == 1 && get_len_array(g->stack_b) == 0)
-		just_rotate_a(g, g->array, rotate_master(g->array, 'a'));
+	if (check_polusort_stack_a(g->a) == 1 && get_len_array(g->b) == 0)
+		just_rotate_a(g, g->a, rotate_master(g->a, 'a'));
 	complete_sort(g);
 }
 
@@ -52,7 +50,7 @@ int	main(int ac, char **av)
 	ft_bzero(&g, sizeof(t_general));
 	parse_number_values(&g, av);
 	make_array_values(&g, av);
-	check_doubles_arr(g.array);
+	check_doubles_arr(g.a);
 	push_swap(&g);
 	return (0);
 }
