@@ -26,29 +26,22 @@ int	check_lises(t_general *g, char *elem)
 	return (0);
 }
 
-char	**re_sort_array(t_general *g)
+void	next_from_lis(t_general *g)
 {
-	char	**new_sort;
 	size_t	i;
 	size_t	a;
 
 	i = 0;
 	a = 0;
-	new_sort = (char **)malloc(sizeof(char *) * (g->len_liss + 1));
+	g->unliss = (char **)malloc(sizeof(char *) * (g->len_liss + 1));
 	while (g->sort[i] != NULL)
 	{
 		if (check_lises(g, g->sort[i]) == 1)
 		{
-			new_sort[a] = g->sort[i];
+			g->unliss[a] = g->sort[i];
 			a++;
 		}
 		i++;
 	}
-	new_sort[a] = NULL;
-	return (new_sort);
-}
-
-void	next_from_lis(t_general *g)
-{
-	g->unliss = re_sort_array(g);
+	g->unliss[a] = NULL;
 }

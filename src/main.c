@@ -1,5 +1,14 @@
 #include "push_swap.h"
 
+void	complete_sort(t_general *g)
+{
+	free(g->a);
+	free(g->b);
+	free(g->sort);
+	free(g->unliss);
+	exit (0);
+}
+
 void	ft_error(char *str)
 {
 	size_t	i;

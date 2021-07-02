@@ -18,7 +18,6 @@ SRS =		main.c \
 			ins_adjacent_1.c \
 			get_utils.c \
 			check_sorts.c \
-			complete.c \
 			alg_five.c \
 			super_ins_push_rotate.c \
 			lis.c \
