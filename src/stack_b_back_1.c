@@ -2,18 +2,13 @@
 
 void	init_processing(t_general *g, int i)
 {
-	if (g->num_ins[i].ra < 0)
-		g->num_ins[i].ra = 0;
-	if (g->num_ins[i].rb < 0)
-		g->num_ins[i].rb = 0;
-	if (g->num_ins[i].rr < 0)
-		g->num_ins[i].rr = 0;
-	if (g->num_ins[i].rrr < 0)
-		g->num_ins[i].rrr = 0;
-	if (g->num_ins[i].rrb < 0)
-		g->num_ins[i].rrb = 0;
-	if (g->num_ins[i].rra < 0)
-		g->num_ins[i].rra = 0;
+	g->num_ins[i].ra = 0;
+	g->num_ins[i].rb = 0;
+	g->num_ins[i].rr = 0;
+	g->num_ins[i].rrr = 0;
+	g->num_ins[i].rrb = 0;
+	g->num_ins[i].rra = 0;
+	g->num_ins[i].count = 0;
 }
 
 void	if_processing_1(t_general *g, int i)

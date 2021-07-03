@@ -3,9 +3,9 @@
 void	alg_max(t_general *g, int i, int min, int current_number)
 {
 	g->num_ins[i].stack_a_rotate = get_min_way(g->a,
-			get_pos_elem(g->a, ft_itoa(min)));
+			get_pos_elem(g->a, pf_itoa_base(min, 10)));
 	g->num_ins[i].stack_b_rotate = get_min_way(g->b,
-			get_pos_elem(g->b, ft_itoa(current_number)));
+			get_pos_elem(g->b, pf_itoa_base(current_number, 10)));
 	g->num_ins[i].count = (abs)(g->num_ins[i].stack_a_rotate)
 		+ (abs)(g->num_ins[i].stack_b_rotate);
 }
@@ -13,9 +13,9 @@ void	alg_max(t_general *g, int i, int min, int current_number)
 void	alg_min(t_general *g, int i, int min, int current_number)
 {
 	g->num_ins[i].stack_a_rotate = get_min_way(g->a,
-			get_pos_elem(g->a, ft_itoa(min)));
+			get_pos_elem(g->a, pf_itoa_base(min, 10)));
 	g->num_ins[i].stack_b_rotate = get_min_way(g->b,
-			get_pos_elem(g->b, ft_itoa(current_number)));
+			get_pos_elem(g->b, pf_itoa_base(current_number, 10)));
 	g->num_ins[i].count = (abs)(g->num_ins[i].stack_a_rotate)
 		+ (abs)(g->num_ins[i].stack_b_rotate);
 }

@@ -33,3 +33,35 @@ int	find_min_in_a(t_general *g)
 	}
 	return (min);
 }
+
+int			ft_intlen_base(unsigned long nbr, int base)
+{
+	int		i;
+
+	i = 0;
+	if (nbr == 0)
+		return (1);
+	while (nbr)
+	{
+		nbr /= base;
+		i++;
+	}
+	return (i);
+}
+
+char		*pf_itoa_base(unsigned long nbr, int base)
+{
+	static char		buf[50];
+	register int	len;
+	char			c;
+
+	len = ft_intlen_base(nbr, base);
+	buf[len--] = '\0';
+	while (len >= 0)
+	{
+		c = (char)(nbr % base);
+		buf[len--] = c + ((c > 9) ? 'W' : '0');
+		nbr /= base;
+	}
+	return (buf);
+}

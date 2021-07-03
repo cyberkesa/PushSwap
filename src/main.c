@@ -6,6 +6,7 @@ void	complete_sort(t_general *g)
 	free(g->b);
 	free(g->sort);
 	free(g->unliss);
+	free(g->num_ins);
 	exit (0);
 }
 

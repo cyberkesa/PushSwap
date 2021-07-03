@@ -25,7 +25,8 @@ void	pushing_number(t_general *g, int number_id)
 
 void	make_counts_struct(t_general *g)
 {
-	g->num_ins = NULL;
+	// g->num_ins = NULL;
+	free(g->num_ins);
 	g->num_ins = (t_num_ins *)malloc(sizeof(t_num_ins)
 			* (get_len_array(g->b) + 1));
 	init_struct(g);
@@ -64,4 +65,5 @@ void	back_push(t_general *g)
 		make_counts_struct(g);
 		pushing_number(g, get_number(g));
 	}
+	// free(g->num_ins);
 }

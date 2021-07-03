@@ -36,7 +36,7 @@ OBJECTS =	$(addprefix $(OBJD), $(patsubst %.c, %.o, $(SRS)))
 
 INCLUDES =	-I inc/ -I Libft/
 
-CFLAGS =	-O2 -fsanitize=address -g
+CFLAGS =	-O2 #-fsanitize=address -g
 
 CC =		gcc
 

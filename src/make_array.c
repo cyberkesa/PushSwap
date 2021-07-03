@@ -29,4 +29,5 @@ void	make_array_values(t_general *general, char **av)
 	general->sort[len] = NULL;
 	general->a[len] = NULL;
 	general->b[0] = NULL;
+	general->num_ins = NULL;
 }
