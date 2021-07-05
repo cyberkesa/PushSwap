@@ -25,7 +25,7 @@ void	pa_1(t_general *g, char **new_a, char **new_b, size_t len_a)
 	g->a = new_a;
 	g->b = new_b;
 	g->number_ins++;
-	printf("pa\n");
+	write(1, "pa\n", 3);
 }
 
 void	pa_ins(t_general *g)

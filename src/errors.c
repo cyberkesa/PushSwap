@@ -35,7 +35,7 @@ void	check_maxint(char **av)
 	while (av[i] != NULL)
 	{
 		if (max_int(av[i]) == 1)
-			ft_error("Error! MAXINT.\n");
+			ft_error("Error\n");
 		i++;
 	}
 }
@@ -52,7 +52,7 @@ void	check_non_numeric(char **av)
 		while (av[i][a])
 		{
 			if (!ft_isdigit((int)av[i][a]) && av[i][a] ^ '-' && av[i][a] ^ ' ')
-				ft_error("Error! Non numeric parameters.\n");
+				ft_error("Error\n");
 			a++;
 		}
 		i++;

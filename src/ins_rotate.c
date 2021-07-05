@@ -19,7 +19,7 @@ void	ra_ins(t_general *g)
 	}
 	g->a[i - 1] = tmp;
 	g->number_ins++;
-	printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	rb_ins(t_general *g)
@@ -41,7 +41,7 @@ void	rb_ins(t_general *g)
 	}
 	g->b[i - 1] = tmp;
 	g->number_ins++;
-	printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	rra_ins(t_general *g)
@@ -55,7 +55,7 @@ void	rra_ins(t_general *g)
 		g->a[len] = g->a[len - 1];
 	g->a[0] = tmp;
 	g->number_ins++;
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 void	rrb_ins(t_general *g)
@@ -69,5 +69,5 @@ void	rrb_ins(t_general *g)
 		g->b[len] = g->b[len - 1];
 	g->b[0] = tmp;
 	g->number_ins++;
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }

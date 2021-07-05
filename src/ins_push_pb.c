@@ -25,7 +25,7 @@ void	pb_1(t_general *g, char **new_a, char **new_b, size_t len_b)
 	g->a = new_a;
 	g->b = new_b;
 	g->number_ins++;
-	printf("pb\n");
+	write(1, "pb\n", 3);
 }
 
 void	pb_ins(t_general *g)

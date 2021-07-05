@@ -10,7 +10,7 @@ void	sa_ins(t_general *g)
 	g->a[0] = g->a[1];
 	g->a[1] = tmp;
 	g->number_ins++;
-	printf("sa\n");
+	write(1, "sa\n", 3);
 }
 
 void	sb_ins(t_general *g)
@@ -23,5 +23,5 @@ void	sb_ins(t_general *g)
 	g->b[0] = g->b[1];
 	g->b[1] = tmp;
 	g->number_ins++;
-	printf("sb\n");
+	write(1, "sb\n", 3);
 }

@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: vwinfred <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/11/23 12:04:48 by vwinfred          #+#    #+#              #
-#    Updated: 2020/11/23 12:04:49 by vwinfred         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME =				libft.a
 CC =				gcc
 FLAGS =				-Wall -Werror -Wextra
@@ -113,23 +101,6 @@ $(OBJECTS_PATH)%.o : $(SOURCES_PATH)%.c $(HEADERS)
 		@printf $(notdir $@)
 		@printf "\x1b[0m\n"
 		@printf "\n"
-
-# bonus: $(BONUS_PATH) $(BONUS_OBJECTS)
-# 		@ar rc $(NAME) $(BONUS_OBJECTS)
-# 		@ranlib $(NAME)
-# 		@printf "\x1b[2mCreate: "
-# 		@printf $@
-# 		@printf "\n\x1b[0m\n"
-
-# $(BONUS_PATH):
-# 		@mkdir -p $(BONUS_PATH)
-
-# $(BONUS_PATH)%.o : $(SRC_BONUS_PATH)%.c $(HEADERS)
-# 		@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
-# 		@printf "\x1b[2m\x1b[m Compile object: "
-# 		@printf $(notdir $@)
-# 		@printf "\x1b[0m\n"
-# 		@printf "\n"
 
 clean:
 		@rm -rf $(OBJECTS_PATH)

@@ -7,7 +7,6 @@ OBJD =		objects/
 SRS =		main.c \
 			make_array.c \
 			quick_sort.c \
-			prints.c \
 			algorithm.c \
 			check_error.c \
 			ins_push_pa.c \
@@ -36,7 +35,7 @@ OBJECTS =	$(addprefix $(OBJD), $(patsubst %.c, %.o, $(SRS)))
 
 INCLUDES =	-I inc/ -I Libft/
 
-CFLAGS =	-O2 #-fsanitize=address -g
+CFLAGS =	-O2
 
 CC =		gcc
 

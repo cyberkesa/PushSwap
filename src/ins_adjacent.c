@@ -12,7 +12,7 @@ void	rr_ins(t_general *g)
 	ra_rr(g);
 	rb_rr(g);
 	g->number_ins++;
-	printf("rr\n");
+	write(1, "rr\n", 3);
 }
 
 void	rrr_ins(t_general *g)
@@ -20,5 +20,5 @@ void	rrr_ins(t_general *g)
 	rra_rrr(g);
 	rrb_rrr(g);
 	g->number_ins++;
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }
