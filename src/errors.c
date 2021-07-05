@@ -23,7 +23,7 @@ int	max_int(const char *str)
 			return (1);
 	}
 	else if (result > INT_MAX)
-			return (1);
+		return (1);
 	return (0);
 }
 
@@ -38,13 +38,12 @@ void	check_maxint(char **av)
 			ft_error("Error! MAXINT.\n");
 		i++;
 	}
-
 }
 
 void	check_non_numeric(char **av)
 {
 	int	i;
-	int a;
+	int	a;
 
 	i = 1;
 	while (av[i] != NULL)

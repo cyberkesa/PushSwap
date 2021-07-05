@@ -34,7 +34,7 @@ int	find_min_in_a(t_general *g)
 	return (min);
 }
 
-int			ft_intlen_base(unsigned long nbr, int base)
+int	ft_intlen_base(unsigned long nbr, int base)
 {
 	int		i;
 
@@ -49,7 +49,7 @@ int			ft_intlen_base(unsigned long nbr, int base)
 	return (i);
 }
 
-char		*pf_itoa_base(unsigned long nbr, int base)
+char	*pf_itoa_base(unsigned long nbr, int base)
 {
 	static char		buf[50];
 	register int	len;
@@ -60,7 +60,10 @@ char		*pf_itoa_base(unsigned long nbr, int base)
 	while (len >= 0)
 	{
 		c = (char)(nbr % base);
-		buf[len--] = c + ((c > 9) ? 'W' : '0');
+		if (c > 9)
+			buf[len--] = c + 'W';
+		else
+			buf[len--] = c + '0';
 		nbr /= base;
 	}
 	return (buf);

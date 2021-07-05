@@ -25,7 +25,6 @@ void	pushing_number(t_general *g, int number_id)
 
 void	make_counts_struct(t_general *g)
 {
-	// g->num_ins = NULL;
 	free(g->num_ins);
 	g->num_ins = (t_num_ins *)malloc(sizeof(t_num_ins)
 			* (get_len_array(g->b) + 1));
@@ -47,7 +46,7 @@ int	get_number(t_general *g)
 		i = 1;
 		while (i ^ len)
 		{
-			if (g->num_ins[i].count < count_return_id)
+			if (g->num_ins[i].count <= count_return_id)
 			{
 				return_id = i;
 				count_return_id = g->num_ins[i].count;
@@ -65,5 +64,4 @@ void	back_push(t_general *g)
 		make_counts_struct(g);
 		pushing_number(g, get_number(g));
 	}
-	// free(g->num_ins);
 }

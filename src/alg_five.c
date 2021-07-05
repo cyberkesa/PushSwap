@@ -24,10 +24,10 @@ void	alg_five_1(t_general *g, int i, int rotate)
 		{
 			if (ft_atoi(g->a[0]) > ft_atoi(g->a[1])
 				&& ft_atoi(g->a[0]) > ft_atoi(g->a[2]))
-					ra_ins(g);
+				ra_ins(g);
 			if (ft_atoi(g->a[0]) > ft_atoi(g->a[1])
 				&& ft_atoi(g->a[0]) < ft_atoi(g->a[2]))
-					sa_ins(g);
+				sa_ins(g);
 		}
 		else if (ft_atoi(g->a[0]) > ft_atoi(g->a[1]))
 			sa_ins(g);

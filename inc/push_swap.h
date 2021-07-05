@@ -93,6 +93,6 @@ void	init_numbers(t_general *g);
 void	init_struct(t_general *g);
 void	alg_four(t_general *g);
 void	check_errors(char **av);
-char		*pf_itoa_base(unsigned long nbr, int base);
+char	*pf_itoa_base(unsigned long nbr, int base);
 
 #endif
